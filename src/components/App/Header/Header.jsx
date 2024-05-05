@@ -1,8 +1,6 @@
-
-
 function Header() {
     return (
-        <header>Header</header>
+        <header>HEADER</header>
     )
 }
 
