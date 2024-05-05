@@ -1,6 +1,6 @@
 import './Header.css';
-import wtwr from '../../assets/wtwr.svg';
-import avatar from '../../assets/avatar.png';
+import wtwr from '../../../assets/wtwr.svg';
+import avatar from '../../../assets/avatar.png';
 
 function Header() {
     return (
