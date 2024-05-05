@@ -1,3 +1,18 @@
 .header {
     display: flex;
+    align-items: center;
+}
+
+.header__add-clothes-btn {
+    margin-left: auto;
+}
+
+.header__user-container {
+    display: flex;
+    align-items: center;
+}
+
+.header__logo {
+    width: 89px;
+    height: 40px;
 }
