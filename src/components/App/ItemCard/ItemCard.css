@@ -3,6 +3,7 @@
     position: relative;
     display: flex;
     justify-content: center;
+    border-radius: 50px;
 }
 
 .card__name {
