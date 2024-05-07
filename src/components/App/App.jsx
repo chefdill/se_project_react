@@ -2,9 +2,10 @@ import { useState } from "react";
 import './App.css';
 import Header from './Header/Header.jsx';
 import Main from './Main/Main.jsx';
+import { defaultClothingItems } from "../../utils/constants.js";
 
 function App() {
-  const [weatherData, setWeatherData] = useState('clothes');
+  const [weatherData, setWeatherData] = useState({ defaultClothingItems });
 
   return (
  <div className="page">
