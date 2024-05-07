@@ -4,7 +4,7 @@ import Header from './Header/Header.jsx';
 import Main from './Main/Main.jsx';
 
 function App() {
-  const [weatherData, setWeatherData] = useState([]);
+  const [weatherData, setWeatherData] = useState('clothes');
 
   return (
  <div className="page">
