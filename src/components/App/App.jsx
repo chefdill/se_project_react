@@ -5,7 +5,7 @@ import Main from './Main/Main.jsx';
 import { defaultClothingItems } from "../../utils/constants.js";
 
 function App() {
-  const [weatherData, setWeatherData] = useState({ defaultClothingItems });
+  const [weatherData, setWeatherData] = useState({ type: defaultClothingItems });
 
   return (
  <div className="page">
