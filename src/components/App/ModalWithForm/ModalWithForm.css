@@ -17,16 +17,16 @@
 }
 
 .modal__content {
-    max-width: 496px;
-    max-height: 436px;
     background-color: white;
     position: relative;
     padding: 28px 28px 36px;
+    max-width: 496px;
+    max-height: 436px;
+    width: 100%;
 }
 
 .modal__form {
     width: 100%;
-    /* justify-content: center; */
     display: flex;
     flex-direction: column;
 }
