@@ -3,7 +3,7 @@ import wtwr from '../../../assets/wtwr.svg';
 import avatar from '../../../assets/avatar.png';
 
 
-const Header = ({ onCreateModal, location }) => {
+const Header = ({ location, handleAddClick }) => {
     const currentDate = new Date().toLocaleString('default', {month: 'long', day: 'numeric' });
     return (
         <header className="header">
@@ -14,7 +14,7 @@ const Header = ({ onCreateModal, location }) => {
             <p className="header__date-and-location"> {currentDate}, {location} </p>
             <button 
                 className="header__add-clothes-btn" 
-                onClick={onCreateModal}> 
+                onClick={handleAddClick} > 
                 + Add Clothes
             </button>
             <div className="header__user-container">
