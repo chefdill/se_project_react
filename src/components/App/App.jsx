@@ -13,16 +13,21 @@ function App() {
     setActiveModal("add-garment");
   };
 
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
+
   return (
  <div className="page">
   <div className="page__content">
-    <Header handleAddClick={setActiveModal} />
+    <Header handleAddClick={handleAddClick} />
     <Main weatherData={weatherData} />
     </div>
     <ModalWithForm 
       title="New Garment" 
       buttonText="Add Garment" 
       activeModal={activeModal}
+      handleCloseClick={closeActiveModal}
     >
     <label htmlFor="name" className="modal__label">
             Name {" "}
