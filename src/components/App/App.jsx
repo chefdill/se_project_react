@@ -8,8 +8,8 @@ import ItemModal from "./ItemModal/ItemModal.jsx";
 
 
 function App() {
-  const [weatherData, setWeatherData] = useState({ type: [] });
-  const [activeModal, setActiveModal] =useState("hot");
+  const [weatherData, setWeatherData] = useState({ type: "cold" });
+  const [activeModal, setActiveModal] =useState("preview");
   const [selectedCard, setSelectedCard] = useState({});
 
   const handleAddClick = () => {
@@ -29,7 +29,7 @@ function App() {
  <div className="page">
   <div className="page__content">
     <Header handleAddClick={handleAddClick} />
-    <Main weatherData={weatherData} />
+    <Main weatherData={weatherData} handleCardClick={handleCardClick} />
     </div>
     <ModalWithForm 
       title="New Garment" 
