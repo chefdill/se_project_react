@@ -3,7 +3,7 @@ import wtwr from '../../../assets/wtwr.svg';
 import avatar from '../../../assets/avatar.png';
 
 
-const Header = ({ location, handleAddClick }) => {
+const Header = ({ handleAddClick, weatherData }) => {
     const currentDate = new Date().toLocaleString('default', {month: 'long', day: 'numeric' });
     return (
         <header className="header">
@@ -11,7 +11,7 @@ const Header = ({ location, handleAddClick }) => {
                 src={wtwr} 
                 alt="Logo" 
                 className="header__logo"/>
-            <p className="header__date-and-location"> {currentDate}, {location} </p>
+            <p className="header__date-and-location"> {currentDate}, {weatherData.city} </p>
             <button 
                 className="header__add-clothes-btn" 
                 onClick={handleAddClick} > 
