@@ -92,7 +92,6 @@ function App() {
     activeModal={activeModal} 
     card={selectedCard} 
     onClose={closeActiveModal}
-    disabled 
     />
  </div>
  );
