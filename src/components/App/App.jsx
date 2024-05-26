@@ -9,8 +9,8 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ 
-    type: "hot", 
-    temp: {F: 999, C: 999 },
+    type: "",
+    temp: { F: 999 },
     city: "",
   });
   const [activeModal, setActiveModal] = useState("preview");
@@ -91,7 +91,8 @@ function App() {
     <ItemModal 
     activeModal={activeModal} 
     card={selectedCard} 
-    onClose={closeActiveModal} 
+    onClose={closeActiveModal}
+    disabled 
     />
  </div>
  );
