@@ -59,19 +59,28 @@ export const weatherOptions = [
     condition: "fog",
     url: new URL("../assets/night/fog.png", import.meta.url).href,
   },
-]
+];
+
+export const defaultWeatherOptions = {
+  day : {
+    url: new URL("../assets/day/default.png", import.meta.url).href,
+  },
+  night : {
+    url: new URL("../assets/night/default.png", import.meta.url).href,
+  },
+};
 
 export const defaultClothingItems = [
     {
       _id: 0,
       name: "Cap",
-      weather: "hot",
+      weather: "warm",
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Cap.png?etag=f3dad389b22909cafa73cff9f9a3d591",
     },
     {
       _id: 1,
       name: "Hoodie",
-      weather: "warm",
+      weather: "cold",
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Hoodie.png?etag=5f52451d0958ccb1016c78a45603a4e8",
     },
     {
