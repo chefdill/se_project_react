@@ -7,3 +7,12 @@
 .modal__footer {
     padding: 20px 32px;
 }
+
+.modal__content_item {
+    position: relative;
+    display: flex;
+    border-radius: 20px;
+    max-width: 498px;
+    flex-direction: column;
+    padding: 0;
+}
