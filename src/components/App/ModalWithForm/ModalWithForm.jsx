@@ -14,9 +14,8 @@ return (
             <button 
             type="button" 
             className="modal__close"
-            onClick={onClose}>
-                CLOSE
-            </button>
+            onClick={onClose}
+            />
         <form className="modal__form">
             { children }
             <button type="submit" className="modal__submit">

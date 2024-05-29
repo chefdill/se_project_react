@@ -1,0 +1,9 @@
+.modal__image {
+    width: 498px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.modal__footer {
+    padding: 20px 32px;
+}

@@ -6,6 +6,7 @@ import { coordinates, APIkey } from "../../utils/constants.js";
 import ModalWithForm from "./ModalWithForm/ModalWithForm.jsx";
 import ItemModal from "./ItemModal/ItemModal.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
+import Footer from "./Footer/Footer.jsx";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ 
@@ -43,7 +44,7 @@ function App() {
   <div className="page__content">
     <Header handleAddClick={handleAddClick} weatherData={weatherData} />
     <Main weatherData={weatherData} handleCardClick={handleCardClick} />
-    </div>
+
     <ModalWithForm 
       title="New Garment" 
       buttonText="Add Garment" 
@@ -93,6 +94,8 @@ function App() {
     card={selectedCard} 
     onClose={closeActiveModal}
     />
+    <Footer />
+    </div>
  </div>
  );
 }

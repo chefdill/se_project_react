@@ -1,0 +1,12 @@
+.footer {
+    line-height: 20px;
+    font-family: "Cabinet Grotesk-Medium";
+    margin-top: 20px;
+    padding: 121px 24px;
+    max-width: 1360px;
+}
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+}
