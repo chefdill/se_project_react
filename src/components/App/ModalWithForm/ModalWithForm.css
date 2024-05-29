@@ -22,10 +22,9 @@
     right: 28px;
     width: 20px;
     height: 20px;
-    background-image: url(../../assets/whiteclose.png) ;
+    background-image: url(../../assets/darkclose.png) ;
     /* border: none; */
     cursor: pointer;
-    background: none;
 }
 
 .modal__content {
