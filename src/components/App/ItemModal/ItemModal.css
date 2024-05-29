@@ -16,3 +16,7 @@
     flex-direction: column;
     padding: 0;
 }
+
+.modal__close_dark{
+    background-image: url(../../assets/whiteclose.png);
+}
