@@ -22,8 +22,10 @@
     right: 28px;
     width: 20px;
     height: 20px;
-    background-image: url(../../assets/darkclose.png);
-    /* border: none; */
+    background-image: url(../../../assets/darkclose.png);
+    background-repeat: no-repeat;
+    background-color: white;
+    border: none;
     cursor: pointer;
 }
 

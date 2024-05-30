@@ -17,6 +17,8 @@
     padding: 0;
 }
 
-.modal__close_dark{
-    background-image: url(../../assets/whiteclose.png);
+.modal__close_white{
+    background-image: url(../../../assets/whiteclose.png);
+    border: none;
+    background-color: none;
 }
