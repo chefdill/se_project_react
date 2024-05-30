@@ -72,19 +72,19 @@ function App() {
             <label htmlFor="hot" 
             className="modal__label modal__label_type_radio">
                 <input id="cold" type="radio" 
-                className="modal__radio-input" 
+                className="modal__radio_button_input" 
                 /> Hot
             </label>
             <label htmlFor="warm" 
             className="modal__label modal__label_type_radio">
                 <input id="cold" type="radio" 
-                className="modal__radio-input" 
+                className="modal__radio_button_input" 
                 /> Warm
             </label>
             <label htmlFor="cold" 
             className="modal__label modal__label_type_radio">
                 <input id="cold" type="radio" 
-                className="modal__radio-input" 
+                className="modal__radio_button_input" 
                 /> Cold
             </label>
         </fieldset>

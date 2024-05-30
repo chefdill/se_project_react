@@ -57,7 +57,14 @@
 
 .modal__radio-buttons {
     border: none;
-    padding: 8px;
     display: flex;
     flex-direction: column;
+}
+
+.modal__radio_button_input{
+    margin-right: 5px;
+}
+
+.modal__label_type_radio{
+    padding-bottom: 8px;
 }
