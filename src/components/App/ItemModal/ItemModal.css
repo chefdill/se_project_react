@@ -17,8 +17,16 @@
     padding: 0;
 }
 
-.modal__close_white{
+.card__close{
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    width: 20px;
+    height: 20px;
     background-image: url(../../../assets/whiteclose.png);
-    border: none;
+    background-repeat: no-repeat;
     background-color: none;
+    opacity: 0.5;
+    border: none;
+    cursor: pointer;
 }
