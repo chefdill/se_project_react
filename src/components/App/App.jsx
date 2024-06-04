@@ -27,7 +27,7 @@ function App() {
   };
 
   const closeActiveModal = () => {
-    setActiveModal("");
+    setActiveModal("modal_opened");
   };
 
   useEffect(() => {

@@ -18,15 +18,15 @@
     padding: 0;
 }
 
-.card__close{
+.modal__close-item{
     position: absolute;
     top: 20px;
     right: 28px;
     width: 20px;
     height: 20px;
+    background: none;
     background-image: url(../../../assets/whiteclose.png);
     background-repeat: no-repeat;
-    background-color: none;
     border: none;
     cursor: pointer;
 }
