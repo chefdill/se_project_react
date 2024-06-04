@@ -10,7 +10,7 @@ import Footer from "./Footer/Footer.jsx";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
-    type: "",
+    type: "neutral",
     temp: { F: 75 },
     city: "",
   });
