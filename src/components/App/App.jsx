@@ -10,11 +10,12 @@ import Footer from "./Footer/Footer.jsx";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
-    type: "neutral",
+    type: "hot",
     temp: { F: 75 },
     city: "",
   });
   const [activeModal, setActiveModal] = useState("");
+  const [weatherType, setWeatherType] = useState('');
   const [selectedCard, setSelectedCard] = useState({});
 
   const handleAddClick = () => {
@@ -27,7 +28,8 @@ function App() {
   };
 
   const closeActiveModal = () => {
-    setActiveModal("modal_opened");
+    setActiveModal("");
+    setWeatherType("");
   };
 
   useEffect(() => {
