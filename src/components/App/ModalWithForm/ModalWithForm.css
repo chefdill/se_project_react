@@ -57,6 +57,21 @@
     outline-style: none;
 }
 
+.modal__submit {
+    width: 124px;
+    height: 36px;
+    background: lightgrey;
+    border-radius: 3px;
+    color: white;
+    border: none;
+}
+
+.modal__submit:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
 .modal__radio-buttons {
     border: none;
     display: flex;
