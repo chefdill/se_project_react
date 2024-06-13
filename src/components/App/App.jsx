@@ -10,7 +10,7 @@ import Footer from "./Footer/Footer.jsx";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
-    type: "hot",
+    type: "",
     temp: { F: 75 },
     city: "",
   });
@@ -50,7 +50,7 @@ function App() {
         <ModalWithForm
           title="New Garment"
           buttonText="Add Garment"
-          activeModal={activeModal}
+          isOpen={activeModal === "add-garment"}
           onClose={closeActiveModal}
         >
           <label htmlFor="name" className="modal__label">
@@ -79,6 +79,7 @@ function App() {
             >
               <input
                 id="hot"
+                name="weather"
                 type="radio"
                 className="modal__radio_button_input"
               />{" "}
@@ -90,6 +91,7 @@ function App() {
             >
               <input
                 id="warm"
+                name="weather"
                 type="radio"
                 className="modal__radio_button_input"
               />{" "}
@@ -101,6 +103,7 @@ function App() {
             >
               <input
                 id="cold"
+                name="weather"
                 type="radio"
                 className="modal__radio_button_input"
               />{" "}
