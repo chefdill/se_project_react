@@ -10,7 +10,7 @@ return(
     <WeatherCard weatherData={weatherData}/>
     <section className="cards">
         <p className="cards__text">
-            Today is {/*weatherData.temp.F*/} 75&deg; F / You may want to wear:
+            Today is {weatherData.temp.F} F / You may want to wear:
         </p>
         <ul className="cards__list">
             {defaultClothingItems

@@ -11,7 +11,7 @@ import Footer from "./Footer/Footer.jsx";
 function App() {
   const [weatherData, setWeatherData] = useState({
     type: "",
-    temp: { F: 75 },
+    temp: { F: 999 },
     city: "",
   });
   const [activeModal, setActiveModal] = useState("");
