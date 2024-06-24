@@ -18,6 +18,7 @@
     font-family: 'Cabinet Grotesk-Bold';
     border: none;
     background: none;
+    cursor: pointer;
 }
 
 .header__user-container {
