@@ -22,13 +22,13 @@
     position: absolute;
 }
 
-.switch__slider-F {
-
-}
-
 .switch__slider-C {
     left: 24px;
 } 
+
+.switch__slider-F {
+    right: 24px;
+}
 
 .switch__temp-F {
     position: absolute;
