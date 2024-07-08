@@ -1,6 +1,13 @@
+import React, {useState} from "react";
 import ModalWithForm from "../App/ModalWithForm/ModalWithForm";
 
-const AddItemModal = ({closeActiveModal, activeModal}) => {
+
+const AddItemModal = ({closeActiveModal, onAddItem, activeModal}) => {
+  const [name, setName] = useState("");
+  const handleNameChange = (e) => {
+    console.log(e.target.value);
+    setName(e.target.value);
+  }
 
     return (
         <ModalWithForm
@@ -8,6 +15,7 @@ const AddItemModal = ({closeActiveModal, activeModal}) => {
           buttonText="Add Garment"
           isOpen={activeModal === "add-garment"}
           onClose={closeActiveModal}
+          onSubmit={onAddItem}
         >
           <label htmlFor="name" className="modal__label">
             Name{" "}
@@ -16,6 +24,8 @@ const AddItemModal = ({closeActiveModal, activeModal}) => {
               className="modal__input"
               id="name"
               placeholder="Name"
+              value={name}
+              onChange={handleNameChange}
             />
           </label>
           <label htmlFor="imageUrl" className="modal__label">
