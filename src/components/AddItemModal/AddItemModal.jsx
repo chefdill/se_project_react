@@ -9,13 +9,24 @@ const AddItemModal = ({closeActiveModal, onAddItem, activeModal}) => {
     setName(e.target.value);
   }
 
+  const [link, setUrl] = useState("");
+  const handleUrlChange = (e) => {
+    console.log(e.target.value);
+    setUrl(e.target.value);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onAddItem({name, link});
+  }
+
     return (
         <ModalWithForm
           title="New Garment"
           buttonText="Add Garment"
           isOpen={activeModal === "add-garment"}
           onClose={closeActiveModal}
-          onSubmit={onAddItem}
+          onSubmit={handleSubmit}
         >
           <label htmlFor="name" className="modal__label">
             Name{" "}
@@ -35,6 +46,8 @@ const AddItemModal = ({closeActiveModal, onAddItem, activeModal}) => {
               className="modal__input"
               id="imageUrl"
               placeholder="Image Url"
+              value={link}
+              onChange={handleUrlChange}
             />
           </label>
           <fieldset className="modal__radio-buttons">

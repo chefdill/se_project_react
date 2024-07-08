@@ -36,6 +36,10 @@ function App() {
     setWeatherType("");
   };
 
+  const onAddItem = (values) => {
+    console.log(values)
+  };
+
   const handleToggleSwitchChange = () => {
     if(currentTemperatureUnit === 'C') setCurrentTemperatureUnit('F')
     if(currentTemperatureUnit === 'F') setCurrentTemperatureUnit('C')
@@ -61,6 +65,7 @@ function App() {
         <AddItemModal
           activeModal={activeModal}
           closeActiveModal={closeActiveModal}
+          onAddItem={onAddItem}
           />
         <ItemModal
           activeModal={activeModal}
