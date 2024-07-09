@@ -6,6 +6,7 @@ import Main from "./Main/Main";
 import { coordinates, APIkey } from "../../utils/constants";
 import ItemModal from "./ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
+import Profile from '../Profile/Profile';
 import Footer from "./Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import  CurrentTemperatureUnitContext  from '../contexts/CurrentTemperatureUnitContext'
@@ -62,7 +63,7 @@ function App() {
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
         <Routes>
           <Route path="/se_project_react/" element={<Main weatherData={weatherData} handleCardClick={handleCardClick} />} />
-          <Route path="/se_project_react/profile" element={<p>PROFILE</p>} />
+          <Route path="/se_project_react/profile" element={<Profile />} />
         </Routes>
 
         <AddItemModal
