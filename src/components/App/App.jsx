@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
+import { Route, Routes } from 'react-router-dom';
 import "./App.css";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import { coordinates, APIkey } from "../../utils/constants";
-import ModalWithForm from "./ModalWithForm/ModalWithForm.jsx";
 import ItemModal from "./ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import Footer from "./Footer/Footer";
@@ -60,7 +60,10 @@ function App() {
       <CurrentTemperatureUnitContext.Provider value={{currentTemperatureUnit, handleToggleSwitchChange}} >
 
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-        <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+        <Routes>
+          <Route path="/se_project_react/" element={<Main weatherData={weatherData} handleCardClick={handleCardClick} />} />
+          <Route path="/se_project_react/profile" element={<p>PROFILE</p>} />
+        </Routes>
 
         <AddItemModal
           activeModal={activeModal}
