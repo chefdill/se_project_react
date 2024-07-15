@@ -63,7 +63,7 @@ function App() {
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
         <Routes>
           <Route path="/se_project_react/" element={<Main weatherData={weatherData} handleCardClick={handleCardClick} />} />
-          <Route path="/se_project_react/profile" element={<Profile />} />
+          <Route path="/se_project_react/profile" element={<Profile handleCardClick={handleCardClick} />} />
         </Routes>
 
         <AddItemModal
