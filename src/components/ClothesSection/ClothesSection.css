@@ -4,4 +4,16 @@
 
 .items-section{
     display: flex;
+    font-family: "Cabinet Grotesk-Bold";
+}
+
+.items__label{
+    padding-right: 20px;
+}
+
+.items__button {
+    border: none;
+    background: none;
+    color: grey;
+    cursor: pointer;
 }

@@ -6,8 +6,8 @@ function ClothesSection() {
     return (
         <div className="clothes-section">
             <div className="items-section">
-                <p>Your Items</p>
-                <button>+ Add New</button>
+                <p className="items__label">Your Items</p>
+                <button className="items__button">+ Add New</button>
             </div>
             <ul className="cards__list">
             {defaultClothingItems

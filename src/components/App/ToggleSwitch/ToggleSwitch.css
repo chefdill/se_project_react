@@ -23,23 +23,23 @@
 }
 
 .switch__slider-C {
-    left: 24px;
+    left: 26px;
 } 
 
 .switch__slider-F {
-    right: 24px;
+    right: 27px;
 }
 
 .switch__temp-F {
     position: absolute;
-    top: -8px;
+    top: -9px;
     left: 10px;
 }
 
 .switch__temp-C {
     position: absolute;
     top: -9px;
-    right: 11px;
+    right: 10px;
 }
 
 .switch__active {
