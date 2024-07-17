@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Route, Routes } from 'react-router-dom';
+import Api from "../../utils/api";
 import "./App.css";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
