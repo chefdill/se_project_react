@@ -21,6 +21,7 @@ function App() {
   const [weatherType, setWeatherType] = useState('');
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState('F');
+  const [clothingItems, setClothingItems] = useState([]);
 
 
   const handleAddClick = () => {
@@ -37,9 +38,13 @@ function App() {
     setWeatherType("");
   };
 
-  const onAddItem = (values) => {
-    console.log(values)
-  };
+  // const onAddItem = (values) => {
+  //   console.log(values)
+  // };
+
+  const handleAddItemSubmit = (item) => {
+    setClothingItems([item, ...clothingItems]);
+  }
 
   const handleToggleSwitchChange = () => {
     if(currentTemperatureUnit === 'C') setCurrentTemperatureUnit('F')
@@ -69,7 +74,8 @@ function App() {
         <AddItemModal
           activeModal={activeModal}
           closeActiveModal={closeActiveModal}
-          onAddItem={onAddItem}
+          onAddItem={handleAddItemSubmit}
+          // handleAddItemSubmit={handleAddItemSubmit}
           />
         <ItemModal
           activeModal={activeModal}
