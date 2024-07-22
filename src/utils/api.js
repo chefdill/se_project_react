@@ -19,16 +19,16 @@ class Api {
       }).then(this._checkResponse);
     }
   
-    addItem({ name, imageUrl, weather }) {
+    addItem({ name, link, weather }) {
       return fetch(this.baseUrl + "/items", {
         method: "POST",
         headers: this._headers,
         body: JSON.stringify({
           name,
-          imageUrl,
+          link,
           weather,
         }),
-      }).then(this._checkResponse);
+      }).then(this._checkResponse)
     }
   
     deleteItem(id) {

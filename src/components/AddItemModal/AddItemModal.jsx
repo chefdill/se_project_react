@@ -15,9 +15,15 @@ function AddItemModal({closeActiveModal, onAddItem, activeModal}) {
     setUrl(e.target.value);
   }
 
+  const [weather, setWeather] = useState("");
+  const handleButtonChange = (e) => {
+    console.log(e.target.value);
+    setWeather(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({name, link});
+    onAddItem({name, link, weather});
   }
 
     return (
@@ -61,6 +67,7 @@ function AddItemModal({closeActiveModal, onAddItem, activeModal}) {
                 name="weather"
                 type="radio"
                 className="modal__radio_button_input"
+                onChange={handleButtonChange}
               />{" "}
               Hot
             </label>
@@ -73,6 +80,7 @@ function AddItemModal({closeActiveModal, onAddItem, activeModal}) {
                 name="weather"
                 type="radio"
                 className="modal__radio_button_input"
+                onChange={handleButtonChange}
               />{" "}
               Warm
             </label>
@@ -85,6 +93,7 @@ function AddItemModal({closeActiveModal, onAddItem, activeModal}) {
                 name="weather"
                 type="radio"
                 className="modal__radio_button_input"
+                onChange={handleButtonChange}
               />{" "}
               Cold
             </label>

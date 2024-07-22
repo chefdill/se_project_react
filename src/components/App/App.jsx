@@ -12,6 +12,13 @@ import Footer from "./Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import  CurrentTemperatureUnitContext  from '../contexts/CurrentTemperatureUnitContext'
 
+const api = new Api({
+  baseUrl: "http://localhost:3001",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
 function App() {
   const [weatherData, setWeatherData] = useState({
     type: "",
@@ -39,13 +46,20 @@ function App() {
     setWeatherType("");
   };
 
-  // const onAddItem = (values) => {
-  //   console.log(values)
-  // };
+  const onAddItem = (values) => {
+    console.log(values)
+  };
 
   const handleAddItemSubmit = (item) => {
-    setClothingItems([item, ...clothingItems]);
-  }
+    api
+    .addItem(item)
+    .then((res) => {
+      setClothingItems([res, ...clothingItems]);
+      console.log(item);
+      closeActiveModal();
+    })
+    .catch(console.error);
+  };
 
   const handleToggleSwitchChange = () => {
     if(currentTemperatureUnit === 'C') setCurrentTemperatureUnit('F')
