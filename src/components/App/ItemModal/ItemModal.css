@@ -5,6 +5,9 @@
 }
 
 .modal__footer {
+    display: flex;
+    height: 112px;
+    flex-direction: column;
     padding: 20px 32px;
     font-family: "Cabinet Grotesk-Bold";
     background-color: white;
@@ -31,4 +34,15 @@
     background-repeat: no-repeat;
     border: none;
     cursor: pointer;
+}
+
+.delete__modal {
+    position: absolute;
+    width: 101px;
+    height: 24px;
+    color: red;
+    border: none;
+    background-color: white;
+    left: 365px;
+    bottom: 68px;
 }
