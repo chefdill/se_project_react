@@ -67,6 +67,16 @@ function App() {
   }
 
   useEffect(() => {
+    api
+    .getCards()
+    .then((res) => {
+      setClothingItems(res);
+      console.log(res);
+    })
+    .catch(console.error);
+}, []);
+
+  useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
