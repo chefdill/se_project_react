@@ -32,7 +32,7 @@ class Api {
     }
   
     deleteItem(id) {
-      return fetch(this.baseUrl + "/items" + id, {
+      return fetch(this.baseUrl + "/items/" + id, {
         method: "DELETE",
         headers: this._headers,
       }).then(this._checkResponse);
