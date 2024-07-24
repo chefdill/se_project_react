@@ -66,6 +66,19 @@ function App() {
     if(currentTemperatureUnit === 'F') setCurrentTemperatureUnit('C')
   }
 
+  const deleteItemSubmit = () => {
+    api
+      .deleteItem(selectedCard._id)
+      .then(() => {
+        const newClothingItems = clothingItems.filter((item) => {
+          return item._id !== selectedCard._id;
+        });
+        setClothingItems(newClothingItems);
+        closeActiveModal();
+      })
+      .catch(console.error);
+  };
+
   useEffect(() => {
     api
     .getCards()
@@ -104,8 +117,9 @@ function App() {
           />
         <ItemModal
           activeModal={activeModal}
-          card={selectedCard}
+          selectedCard={selectedCard}
           onClose={closeActiveModal}
+          onDelete={deleteItemSubmit}
         />
         <Footer />
         </CurrentTemperatureUnitContext.Provider>
