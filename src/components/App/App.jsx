@@ -10,7 +10,7 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import Profile from '../Profile/Profile';
 import Footer from "./Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import  CurrentTemperatureUnitContext  from '../contexts/CurrentTemperatureUnitContext'
+import  CurrentTemperatureUnitContext  from '../../utils/CurrentTemperatureUnitContext'
 
 const api = new Api({
   baseUrl: "http://localhost:3001",
@@ -44,10 +44,6 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
     setWeatherType("");
-  };
-
-  const onAddItem = (values) => {
-    console.log(values)
   };
 
   const handleAddItemSubmit = (item) => {
