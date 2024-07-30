@@ -102,14 +102,13 @@ function App() {
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
         <Routes>
           <Route path="/" element={<Main weatherData={weatherData} handleCardClick={handleCardClick} clothingItems={clothingItems} />} />
-          <Route path="/profile" element={<Profile handleCardClick={handleCardClick} clothingItems={clothingItems} />} />
+          <Route path="/profile" element={<Profile handleCardClick={handleCardClick} clothingItems={clothingItems} handleAddClick={handleAddClick} />} />
         </Routes>
 
         <AddItemModal
           activeModal={activeModal}
           closeActiveModal={closeActiveModal}
           onAddItem={handleAddItemSubmit}
-          // handleAddItemSubmit={handleAddItemSubmit}
           />
         <ItemModal
           activeModal={activeModal}

@@ -1,7 +1,7 @@
 import './ClothesSection.css';
 import ItemCard from '../App/ItemCard/ItemCard';
 
-function ClothesSection({ handleCardClick, clothingItems }) {
+function ClothesSection({ handleCardClick, clothingItems, handleAddClick }) {
 
     const profileCards = clothingItems; 
 
@@ -9,7 +9,7 @@ function ClothesSection({ handleCardClick, clothingItems }) {
         <div className="clothes-section">
             <div className="items-section">
                 <p className="items__label">Your Items</p>
-                <button className="items__button">+ Add New</button>
+                <button className="items__button" onClick={handleAddClick}>+ Add New</button>
             </div>
             <ul className="clothes-section__items">
                 {profileCards
