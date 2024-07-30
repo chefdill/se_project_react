@@ -1,5 +1,4 @@
 import './ClothesSection.css';
-// import { defaultClothingItems } from "../../utils/constants";
 import ItemCard from '../App/ItemCard/ItemCard';
 
 function ClothesSection({ handleCardClick, clothingItems }) {
@@ -13,11 +12,8 @@ function ClothesSection({ handleCardClick, clothingItems }) {
                 <button className="items__button">+ Add New</button>
             </div>
             <ul className="clothes-section__items">
-            {/* {defaultClothingItems
-            .filter((item) => {
-                return item.weather === weatherData.type;
-            }) */} {profileCards
-            .map((item) => {
+                {profileCards
+                    .map((item) => {
                 return <ItemCard key={item._id} item={item} onCardClick={handleCardClick}/>;
               })}
         </ul>
