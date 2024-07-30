@@ -8,7 +8,7 @@ import CurrentTemperatureUnitContext from '../../../utils/CurrentTemperatureUnit
 function Main ({ weatherData, handleCardClick, clothingItems }) {
 
 const {currentTemperatureUnit} = useContext(CurrentTemperatureUnitContext)
-const temp = weatherData?.temperature?.[currentTemperatureUnit];
+const temp = weatherData?.temp?.[currentTemperatureUnit];
 const weatherType = useMemo(() => {
     if (
       (temp >= 70 && currentTemperatureUnit === "F") ||

@@ -11,7 +11,7 @@ const Header = ({ handleAddClick, weatherData }) => {
   });
   return (
     <header className="header">
-      <Link to="/se_project_react/">
+      <Link to="/">
         <img src={wtwr} alt="Logo" className="header__logo" />
       </Link>
       <p className="header__date-and-location">
@@ -23,7 +23,7 @@ const Header = ({ handleAddClick, weatherData }) => {
         <button className="header__add-clothes-btn" onClick={handleAddClick}>
         + Add Clothes
         </button>
-        <Link to="/se_project_react/profile" className="header__link">
+        <Link to="/profile" className="header__link">
         <div className="header__profile">
           <p className="header__username">Terrence Tegegne</p>
           <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
