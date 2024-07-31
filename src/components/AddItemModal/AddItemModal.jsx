@@ -45,7 +45,7 @@ function AddItemModal({closeActiveModal, onAddItem, activeModal}) {
               onChange={handleNameChange}
             />
           </label>
-          <label htmlFor="imageUrl" className="modal__label">
+          <label htmlFor="link" className="modal__label">
             Image{" "}
             <input
               type="url"
@@ -64,6 +64,7 @@ function AddItemModal({closeActiveModal, onAddItem, activeModal}) {
             >
               <input
                 id="hot"
+                value="hot"
                 name="weather"
                 type="radio"
                 className="modal__radio_button_input"
@@ -77,6 +78,7 @@ function AddItemModal({closeActiveModal, onAddItem, activeModal}) {
             >
               <input
                 id="warm"
+                value="warm"
                 name="weather"
                 type="radio"
                 className="modal__radio_button_input"
@@ -90,6 +92,7 @@ function AddItemModal({closeActiveModal, onAddItem, activeModal}) {
             >
               <input
                 id="cold"
+                value="cold"
                 name="weather"
                 type="radio"
                 className="modal__radio_button_input"
