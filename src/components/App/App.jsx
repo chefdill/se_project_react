@@ -10,7 +10,7 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import Profile from "../Profile/Profile";
 import Footer from "./Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContext";
+import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext";
 
 const api = new Api({
   baseUrl: "http://localhost:3001",
@@ -81,7 +81,7 @@ function App() {
         setClothingItems(res);
         console.log(res);
       })
-      .catch(console.error);
+      .catch(console.error);//goodjob you did this
   }, []);
 
   useEffect(() => {
@@ -90,7 +90,7 @@ function App() {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
-      .catch(console.error);
+      .catch(console.error);//goodjob catching server request
   }, []);
 
   return (
