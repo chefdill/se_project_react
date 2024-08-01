@@ -21,13 +21,17 @@ const Header = ({ handleAddClick, weatherData }) => {
       <div className="header__user-container">
         <ToggleSwitch />
         <button className="header__add-clothes-btn" onClick={handleAddClick}>
-        + Add Clothes
+          + Add Clothes
         </button>
         <Link to="/profile" className="header__link">
-        <div className="header__profile">
-          <p className="header__username">Terrence Tegegne</p>
-          <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
-        </div>
+          <div className="header__profile">
+            <p className="header__username">Terrence Tegegne</p>
+            <img
+              src={avatar}
+              alt="Terrence Tegegne"
+              className="header__avatar"
+            />
+          </div>
         </Link>
       </div>
     </header>

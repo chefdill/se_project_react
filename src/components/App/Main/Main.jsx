@@ -1,14 +1,13 @@
-import { useContext, useMemo } from 'react';
-import WeatherCard from '../WeatherCard/WeatherCard';
-import ItemCard from '../ItemCard/ItemCard';
-import './Main.css';
-import CurrentTemperatureUnitContext from '../../../utils/CurrentTemperatureUnitContext';
+import { useContext, useMemo } from "react";
+import WeatherCard from "../WeatherCard/WeatherCard";
+import ItemCard from "../ItemCard/ItemCard";
+import "./Main.css";
+import CurrentTemperatureUnitContext from "../../../utils/CurrentTemperatureUnitContext";
 
-function Main ({ weatherData, handleCardClick, clothingItems }) {
-
-const {currentTemperatureUnit} = useContext(CurrentTemperatureUnitContext)
-const temp = weatherData?.temp?.[currentTemperatureUnit];
-const weatherType = useMemo(() => {
+function Main({ weatherData, handleCardClick, clothingItems }) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  const temp = weatherData?.temp?.[currentTemperatureUnit];
+  const weatherType = useMemo(() => {
     if (
       (temp >= 70 && currentTemperatureUnit === "F") ||
       (temp >= 21.11 && currentTemperatureUnit === "C")
@@ -27,26 +26,32 @@ const weatherType = useMemo(() => {
     }
   }, [weatherData]);
 
-const filteredCards = clothingItems.filter((item => {
+  const filteredCards = clothingItems.filter((item) => {
     return item.weather === weatherType;
-}))
+  });
 
-return(
+  return (
     <main>
-    <WeatherCard weatherData={weatherData}/>
-    <section className="cards">
+      <WeatherCard weatherData={weatherData} />
+      <section className="cards">
         <p className="cards__text">
-            Today is {weatherData.temp[currentTemperatureUnit]} &deg; {currentTemperatureUnit} / You may want to wear:
+          Today is {weatherData.temp[currentTemperatureUnit]} &deg;{" "}
+          {currentTemperatureUnit} / You may want to wear:
         </p>
         <ul className="cards__list">
-          {filteredCards
-            .map((item) => {
-                return <ItemCard key={item._id} item={item} onCardClick={handleCardClick} />;
-              })}
+          {filteredCards.map((item) => {
+            return (
+              <ItemCard
+                key={item._id}
+                item={item}
+                onCardClick={handleCardClick}
+              />
+            );
+          })}
         </ul>
-        </section>
+      </section>
     </main>
-    );
+  );
 }
 
 export default Main;
