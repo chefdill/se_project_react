@@ -26,7 +26,6 @@ function App() {
     city: "",
   });
   const [activeModal, setActiveModal] = useState("");
-  const [weatherType, setWeatherType] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
@@ -42,7 +41,7 @@ function App() {
 
   const closeActiveModal = () => {
     setActiveModal("");
-    setWeatherType("");
+    setWeatherData("");
   };
 
   const handleAddItemSubmit = (item) => {
@@ -81,7 +80,7 @@ function App() {
         setClothingItems(res);
         console.log(res);
       })
-      .catch(console.error);//goodjob you did this
+      .catch(console.error);
   }, []);
 
   useEffect(() => {
@@ -90,7 +89,7 @@ function App() {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
-      .catch(console.error);//goodjob catching server request
+      .catch(console.error);
   }, []);
 
   return (

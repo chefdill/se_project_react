@@ -20,7 +20,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
       return "warm";
     } else if (
       (temp <= 45 && currentTemperatureUnit === "F") ||
-      (temp >= 7.22 && currentTemperatureUnit === "C")
+      (temp <= 7.22 && currentTemperatureUnit === "C")
     ) {
       return "cold";
     }
@@ -35,7 +35,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
       <WeatherCard weatherData={weatherData} />
       <section className="cards">
         <p className="cards__text">
-          Today is {weatherData.temp[currentTemperatureUnit]} &deg;{" "}
+          Today is {weatherData.temp[currentTemperatureUnit]} &deg;
           {currentTemperatureUnit} / You may want to wear:
         </p>
         <ul className="cards__list">
