@@ -32,10 +32,10 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
 
   return (
     <main>
-      <WeatherCard weatherData={weatherData} />
+      <WeatherCard weatherData={temp} />
       <section className="cards">
         <p className="cards__text">
-          Today is {weatherData.temp[currentTemperatureUnit]} &deg;
+          Today is {temp} &deg;
           {currentTemperatureUnit} / You may want to wear:
         </p>
         <ul className="cards__list">

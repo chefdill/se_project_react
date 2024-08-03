@@ -14,6 +14,7 @@ function WeatherCard({ weatherData }) {
       option.condition === weatherData.condition
     );
   });
+  console.log(weatherData);
 
   let weatherOption;
   if (filteredOptions.length === 0) {
@@ -25,7 +26,7 @@ function WeatherCard({ weatherData }) {
   return (
     <section className="weather-card">
       <p className="weather-card__temp">
-        {weatherData.temp[currentTemperatureUnit]} &deg;{" "}
+        {filteredOptions.weatherData} &deg;{" "}
         {currentTemperatureUnit}
       </p>
       <img
