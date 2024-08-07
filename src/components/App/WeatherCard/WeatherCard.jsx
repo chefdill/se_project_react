@@ -6,19 +6,19 @@ import {
 import "./WeatherCard.css";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.jsx";
 
-function WeatherCard({ weatherData }) {
+function WeatherCard({ weatherData="", day, condition }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const filteredOptions = weatherOptions.filter((option) => {
     return (
-      option.day === weatherData.isDay &&
-      option.condition === weatherData.condition
+      option.day === day && //undefined day
+      option.condition === condition
     );
   });
   console.log(weatherData);
 
   let weatherOption;
   if (filteredOptions.length === 0) {
-    weatherOption = defaultWeatherOptions[weatherData.isDay ? "day" : "night"];
+    weatherOption = defaultWeatherOptions[weatherData.day ? "day" : "night"];
   } else {
     weatherOption = filteredOptions[0];
   }
