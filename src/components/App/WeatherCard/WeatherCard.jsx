@@ -8,13 +8,10 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 
 function WeatherCard({ weatherData="", day, condition }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  const filteredOptions = weatherOptions.filter((option) => {
-    return (
-      option.day === day && //undefined day
-      option.condition === condition
-    );
+  const filteredOptions = weatherOptions.filter((i) => {
+      return i.day === day && i.type === condition;
+
   });
-  console.log(weatherData);
 
   let weatherOption;
   if (filteredOptions.length === 0) {
