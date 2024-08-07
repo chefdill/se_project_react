@@ -41,7 +41,8 @@ function App() {
 
   const closeActiveModal = () => {
     setActiveModal("");
-    setWeatherData("");
+    // setWeatherData("");
+
   };
 
   const handleAddItemSubmit = (item) => {
@@ -72,6 +73,20 @@ function App() {
       })
       .catch(console.error);
   };
+
+  useEffect(() => {
+    if (!activeModal) return;
+
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+    document.addEventListener("keydown", handleEscClose);
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);
 
   useEffect(() => {
     api

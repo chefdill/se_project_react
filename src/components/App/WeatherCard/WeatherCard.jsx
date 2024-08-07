@@ -6,12 +6,14 @@ import {
 import "./WeatherCard.css";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.jsx";
 
-function WeatherCard({ weatherData="", day, condition }) {
+function WeatherCard({ weatherData }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const filteredOptions = weatherOptions.filter((i) => {
-      return i.day === day && i.type === condition;
+      return i.day === weatherData.day && i.type === weatherData.condition;
 
   });
+
+  console.log(weatherData);
 
   let weatherOption;
   if (filteredOptions.length === 0) {

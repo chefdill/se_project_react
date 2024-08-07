@@ -73,7 +73,7 @@ function AddItemModal({ closeActiveModal, onAddItem, activeModal }) {
         <label htmlFor="Warm" className="modal__label modal__label_type_radio">
           <input
             id="Warm"
-            value="Warm"
+            value="warm"
             name="weather"
             type="radio"
             className="modal__radio_button_input"
@@ -84,7 +84,7 @@ function AddItemModal({ closeActiveModal, onAddItem, activeModal }) {
         <label htmlFor="Cold" className="modal__label modal__label_type_radio">
           <input
             id="Cold"
-            value="Cold"
+            value="cold"
             name="weather"
             type="radio"
             className="modal__radio_button_input"
