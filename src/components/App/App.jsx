@@ -41,8 +41,6 @@ function App() {
 
   const closeActiveModal = () => {
     setActiveModal("");
-    // setWeatherData("");
-
   };
 
   const handleAddItemSubmit = (item) => {
