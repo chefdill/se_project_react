@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ModalWithForm from "../App/ModalWithForm/ModalWithForm";
 
 function AddItemModal({ closeActiveModal, onAddItem, activeModal }) {
-  // const formReset = () => {};
 
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
@@ -59,10 +58,10 @@ function AddItemModal({ closeActiveModal, onAddItem, activeModal }) {
       </label>
       <fieldset className="modal__radio-buttons">
         <legend className="modal__legend">Select the weather type:</legend>
-        <label htmlFor="Hot" className="modal__label modal__label_type_radio">
+        <label htmlFor="hot" className="modal__label modal__label_type_radio">
           <input
-            id="Hot"
-            value="Hot"
+            id="hot"
+            value="hot"
             name="weather"
             type="radio"
             className="modal__radio_button_input"
@@ -70,9 +69,9 @@ function AddItemModal({ closeActiveModal, onAddItem, activeModal }) {
           />{" "}
           Hot
         </label>
-        <label htmlFor="Warm" className="modal__label modal__label_type_radio">
+        <label htmlFor="warm" className="modal__label modal__label_type_radio">
           <input
-            id="Warm"
+            id="warm"
             value="warm"
             name="weather"
             type="radio"
@@ -81,9 +80,9 @@ function AddItemModal({ closeActiveModal, onAddItem, activeModal }) {
           />{" "}
           Warm
         </label>
-        <label htmlFor="Cold" className="modal__label modal__label_type_radio">
+        <label htmlFor="cold" className="modal__label modal__label_type_radio">
           <input
-            id="Cold"
+            id="cold"
             value="cold"
             name="weather"
             type="radio"

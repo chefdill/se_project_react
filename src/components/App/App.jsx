@@ -10,7 +10,7 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import Profile from "../Profile/Profile";
 import Footer from "./Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import CurrentTemperatureUnitContext from "../../../utils/contexts/CurrentTemperatureUnitContext.jsx";
+import CurrentTemperatureUnitContext from "../../utils/contexts/CurrentTemperatureUnitContext.jsx";
 
 const api = new Api({
   baseUrl: "http://localhost:3001",
