@@ -1,8 +1,9 @@
-# React + Vite
+WTWR - What to Wear?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Application for fetching a weather API from a location (Austin, TX). It suggests to you what needs to be worn in that weather based on the temperature. 
+Added a toggle switch to switch temperature units from F to C. 
+You can add clothes with link to the image.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
