@@ -11,6 +11,7 @@ import Profile from "../Profile/Profile";
 import Footer from "./Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import CurrentTemperatureUnitContext from "../../utils/contexts/CurrentTemperatureUnitContext.jsx";
+import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 
 const api = new Api({
   baseUrl: "http://localhost:3001",
@@ -146,6 +147,10 @@ function App() {
             selectedCard={selectedCard}
             onClose={closeActiveModal}
             onDelete={deleteItemSubmit}
+          />
+
+          <RegisterModal 
+            activeModal={activeModal}
           />
           <Footer />
         </CurrentTemperatureUnitContext.Provider>
