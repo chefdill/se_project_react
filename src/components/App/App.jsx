@@ -12,8 +12,17 @@ import Footer from "./Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import CurrentTemperatureUnitContext from "../../utils/contexts/CurrentTemperatureUnitContext.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
+import LoginModal from "./LoginModal/LoginModal.jsx";
+import Auth from "../../utils/auth.js";
 
 const api = new Api({
+  baseUrl: "http://localhost:3001",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+const auth = new Auth({
   baseUrl: "http://localhost:3001",
   headers: {
     "Content-Type": "application/json",
@@ -31,19 +40,39 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
 
+  //ACTIVATES THE ADDED CARD
   const handleAddClick = () => {
     setActiveModal("add-garment");
   };
 
+  //PREVIEW OF THE CARD
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
   };
 
+  //CLOSE MODAL
   const closeActiveModal = () => {
     setActiveModal("");
   };
 
+  //REGISTRATION MODAL
+  const handleRegisterModal = () => {
+    setActiveModal("register");
+  }
+
+  //LOGIN MODAL
+  const handleLoginModal = () => {
+    setActiveModal("login");
+  }
+
+  const toggleModal = () => {
+    setActiveModal((prevModal) => 
+      prevModal === "register" ? "login" : "register"
+    );
+  };
+
+  //API ADD ITEM
   const handleAddItemSubmit = (item) => {
     api
       .addItem(item)
@@ -54,12 +83,50 @@ function App() {
       })
       .catch(console.error);
   };
+  
+  //AUTHORIZING REGISTRATION
+  const handleRegistration = ({ name, avatar, email, password }) => {
+    if (name && avatar && email && password) {
+      auth
+      .registerUser({ name, avatar, email, password })
+      .then((res) => {
+        closeActiveModal();
+    })
+    .catch((err) => console.error(err));
+    }
+  }; 
 
+  //AUTHORIZING LOGIN
+  const handleLogin = ({ email, password }) => {
+    if(email && password) {
+      auth
+      .loginUser({ email, password })
+      .then((token) => {
+        return auth.verifyToken(token);
+    })
+    .then((currentUser) => {
+      setCurrentUser(currentUser);
+      closeActiveModal();
+      setIsLoggedIn(true);
+    })
+    .catch((err) => console.error(err));
+    }
+  };
+
+  //LOGOUT HANDLER
+  const handleLogout = () => {
+    setIsloggedIn(false);
+    setCurrentUser(currentUser === null);
+    localStorage.removeItem("jwt");
+  }
+
+  //SWITCHING F => C
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
+  //DELETE ITEM
   const deleteItemSubmit = () => {
     api
       .deleteItem(selectedCard._id)
@@ -73,6 +140,7 @@ function App() {
       .catch(console.error);
   };
 
+  //CLOSING WITH ESCAPE KEY
   useEffect(() => {
     if (!activeModal) return;
 
@@ -87,6 +155,7 @@ function App() {
     };
   }, [activeModal]);
 
+  //API GET CARDS
   useEffect(() => {
     api
       .getCards()
@@ -97,6 +166,7 @@ function App() {
       .catch(console.error);
   }, []);
 
+  //API GET WEATHER
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
@@ -112,7 +182,12 @@ function App() {
         <CurrentTemperatureUnitContext.Provider
           value={{ currentTemperatureUnit, handleToggleSwitchChange }}
         >
-          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+          <Header 
+          handleAddClick={handleAddClick} 
+          weatherData={weatherData} 
+          onSignupClick={handleRegisterModal}
+          onLoginClick={handleLoginModal}
+          />
           <Routes>
             <Route
               path="/"
@@ -132,6 +207,7 @@ function App() {
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
                   handleAddClick={handleAddClick}
+                  onLogoutClick={handleLogout}
                 />
               }
             />
@@ -139,7 +215,7 @@ function App() {
 
           <AddItemModal
             activeModal={activeModal}
-            closeActiveModal={closeActiveModal}
+            onClose={closeActiveModal}
             onAddItem={handleAddItemSubmit}
           />
           <ItemModal
@@ -151,12 +227,24 @@ function App() {
 
           <RegisterModal 
             activeModal={activeModal}
+            onClose={closeActiveModal}
+            handleRegistration={handleRegistration}
+            handleLogin={handleLogin}
+            onCreateModal={handleRegisterModal}
+          />
+
+          <LoginModal 
+            activeModal={activeModal}
+            handleLogin={handleLogin}
+            onCreateModal={handleLoginModal}
+            onSignUpClick={toggleModal}
           />
           <Footer />
         </CurrentTemperatureUnitContext.Provider>
       </div>
     </div>
   );
-}
+ }
+
 
 export default App;
