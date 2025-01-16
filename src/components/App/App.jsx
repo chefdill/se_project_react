@@ -176,6 +176,22 @@ function App() {
       .catch(console.error);
   }, []);
 
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+
+    if(token) {
+      auth
+      .verifyToken(token)
+      .then((user) => {
+        setCurrentUser(user);
+        setIsLoggedIn(true);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+    }
+  }, []);
+
   return (
     <div className="page">
       <div className="page__content">
