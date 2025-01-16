@@ -45,8 +45,8 @@ const RegisterModal = ({
                 <input
                 type="email"
                 name="email"
-                minlength="1"
-                maxlength="30"
+                minLength="1"
+                maxLength="30"
                 placeholder="Email"
                 value={email}
                 onChange={handleEmailChange}
@@ -58,7 +58,7 @@ const RegisterModal = ({
                 <input
                 type="password"
                 name="password"
-                minlength="1"
+                minLength="1"
                 placeholder="Password"
                 value={password}
                 onChange={handlePasswordChange}
