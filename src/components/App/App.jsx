@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Api from "../../utils/api";
 import "./App.css";
 import Header from "./Header/Header";
@@ -11,6 +11,7 @@ import Profile from "../Profile/Profile";
 import Footer from "./Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import CurrentTemperatureUnitContext from "../../utils/contexts/CurrentTemperatureUnitContext.jsx";
+import { CurrentUserContext } from "../../utils/contexts/CurrentUserContext.js";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import LoginModal from "./LoginModal/LoginModal.jsx";
 import Auth from "../../utils/auth.js";
@@ -38,6 +39,8 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [currentUser, setCurrentUser] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [clothingItems, setClothingItems] = useState([]);
 
   //ACTIVATES THE ADDED CARD
@@ -176,9 +179,9 @@ function App() {
       .catch(console.error);
   }, []);
 
+  //LOCAL STORAGE TOKEN
   useEffect(() => {
     const token = localStorage.getItem("jwt");
-
     if(token) {
       auth
       .verifyToken(token)
@@ -193,6 +196,7 @@ function App() {
   }, []);
 
   return (
+    <CurrentUserContext.Provider value={ currentUser }>
     <div className="page">
       <div className="page__content">
         <CurrentTemperatureUnitContext.Provider
@@ -216,15 +220,16 @@ function App() {
                 />
               }
             />
-            <Route
-              path="/profile"
-              element={
-                <Profile
+            <Route path="/profile" 
+            element={
+              isLoggedIn ?
+                (<Profile
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
                   handleAddClick={handleAddClick}
                   onLogoutClick={handleLogout}
-                />
+                />)
+                : <Navigate to="/" />
               }
             />
           </Routes>
@@ -259,6 +264,7 @@ function App() {
         </CurrentTemperatureUnitContext.Provider>
       </div>
     </div>
+    </CurrentUserContext.Provider>
   );
  }
 
