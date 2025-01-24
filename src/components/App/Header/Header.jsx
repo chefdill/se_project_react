@@ -6,7 +6,7 @@ import avatar from "../../../assets/avatar.png";
 import ToggleSwitch from "../../ToggleSwitch/ToggleSwitch";
 import { CurrentUserContext } from "../../../utils/contexts/CurrentUserContext";
 
-const Header = ({ handleAddClick, weatherData, onSignUpClick, onLoginClick, name }) => {
+const Header = ({ handleAddClick, weatherData, onSignUpClick, onLoginClick, name, }) => {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -17,7 +17,7 @@ const Header = ({ handleAddClick, weatherData, onSignUpClick, onLoginClick, name
   const { currentUser } = React.useContext(CurrentUserContext);
 
   React.useEffect(() => {
-    if (currentUser.name) {
+    if (currentUser) {
       setIsLoggedIn(true);
     } else {
       setIsLoggedIn(false);
@@ -40,7 +40,7 @@ const Header = ({ handleAddClick, weatherData, onSignUpClick, onLoginClick, name
         <button className="header__add-clothes-btn" onClick={handleAddClick}>
           + Add Clothes
         </button>
-        <p className="header__name">{currentUser.name}</p>
+        <p className="header__name">{currentUser}</p>
         <Link to="/profile" className="header__link">
           <div className="header__profile">
             <p className="header__username">Terrence Tegegne</p>
