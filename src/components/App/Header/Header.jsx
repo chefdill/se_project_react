@@ -1,10 +1,12 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import wtwr from "../../../assets/wtwr.svg";
 import avatar from "../../../assets/avatar.png";
 import ToggleSwitch from "../../ToggleSwitch/ToggleSwitch";
+import { CurrentUserContext } from "../../../utils/contexts/CurrentUserContext";
 
-const Header = ({ handleAddClick, weatherData }) => {
+const Header = ({ handleAddClick, weatherData, onSignUpClick, onLoginClick, name }) => {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -38,13 +40,13 @@ const Header = ({ handleAddClick, weatherData }) => {
         <button className="header__add-clothes-btn" onClick={handleAddClick}>
           + Add Clothes
         </button>
+        <p className="header__name">{currentUser.name}</p>
         <Link to="/profile" className="header__link">
           <div className="header__profile">
             <p className="header__username">Terrence Tegegne</p>
             <img
               src={avatar}
-              alt="Terrence Tegegne"
-              className="header__avatar"
+              alt="Avatar"
             />
           </div>
         </Link>
