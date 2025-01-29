@@ -71,7 +71,7 @@ function App() {
 
   const toggleModal = () => {
     setActiveModal((prevModal) => 
-      prevModal === "signup" ? "login" : "register"
+      prevModal === "signup" ? "login" : "signup"
     );
   };
 
@@ -213,7 +213,7 @@ function App() {
           <Header 
           handleAddClick={handleAddClick} 
           weatherData={weatherData} 
-          onSignupClick={handleRegisterModal}
+          onSignUpClick={handleRegisterModal}
           onLoginClick={handleLoginModal}
           />
           <Routes>

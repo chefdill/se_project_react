@@ -4,8 +4,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 const LoginModal = ({
     closeActiveModal,
     handleLogin,
-    isOpen,
-    onCreateModal,
+    activeModal,
     onSignUpClick,
 }) => {
     const [email, setEmail] = useState("");
@@ -26,14 +25,14 @@ const LoginModal = ({
     return (
         <ModalWithForm
         title="Login"
-        isOpen={isOpen}
+        isOpen={activeModal === "login"}
         onClose={closeActiveModal}
         onSubmit={handleSubmit}
         >
             <label>
                 Email
                 <input 
-                className="modaul__input"
+                className="modal__input"
                 type="email"
                 name="email"
                 minLength="1"

@@ -11,7 +11,6 @@ const Header = ({
   weatherData, 
   onSignUpClick, 
   onLoginClick, 
-  name 
 }) => {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
