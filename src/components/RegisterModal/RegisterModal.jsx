@@ -4,10 +4,8 @@ import ModalWithForm from "../App/ModalWithForm/ModalWithForm";
 
 const RegisterModal = ({
     closeActiveModal,
-    onAddItem,
     activeModal,
     handleRegistration,
-    onCreateModal,
     onLoginClick,
 }) => {
     const [name, setName] = useState("");
