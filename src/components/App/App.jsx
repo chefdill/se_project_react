@@ -71,7 +71,7 @@ function App() {
 
   const toggleModal = () => {
     setActiveModal((prevModal) => 
-      prevModal === "register" ? "login" : "register"
+      prevModal === "signup" ? "login" : "register"
     );
   };
 
@@ -93,6 +93,7 @@ function App() {
       auth
       .registerUser({ name, avatar, email, password })
       .then((res) => {
+        console.log(res);
         closeActiveModal();
     })
     .catch((err) => console.error(err));
