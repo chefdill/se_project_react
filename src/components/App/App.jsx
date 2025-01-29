@@ -56,7 +56,7 @@ function App() {
 
   //CLOSE MODAL
   const closeActiveModal = () => {
-    setActiveModal("");
+    setActiveModal(null);
   };
 
   //REGISTRATION MODAL
@@ -87,7 +87,7 @@ function App() {
       .catch(console.error);
   };
   
-  //AUTHORIZING REGISTRATION
+  //HANDLE REGISTRATION
   const handleRegistration = ({ name, avatar, email, password }) => {
     if (name && avatar && email && password) {
       auth
@@ -223,7 +223,8 @@ function App() {
             <Route path="/profile" 
             element={
               isLoggedIn ?
-                (<Profile
+                (
+                <Profile
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
                   handleAddClick={handleAddClick}
@@ -252,6 +253,7 @@ function App() {
             handleRegistration={handleRegistration}
             handleLogin={handleLogin}
             onCreateModal={handleRegisterModal}
+            onLoginClick={toggleModal}
           />
 
           <LoginModal 

@@ -2,9 +2,9 @@ import { useState } from "react";
 import ModalWithForm from "../App/ModalWithForm/ModalWithForm";
 
 const RegisterModal = ({
-    handleCloseModal,
+    closeActiveModal,
     onAddItem,
-    isOpen,
+    activeModal,
     handleRegistration,
     onCreateModal,
     onLoginClick,
@@ -33,11 +33,12 @@ const RegisterModal = ({
         e.preventDefault();
         handleRegistration(name, email, password, avatar);
     };
+
     return (
         <ModalWithForm
         title="Sign up"
-        isOpen={isOpen}
-        onClose={handleCloseModal}
+        isOpen={activeModal}
+        onClose={closeActiveModal}
         onSubmit={handleSubmit}
         >
             <label>
