@@ -56,7 +56,7 @@ function App() {
 
   //CLOSE MODAL
   const closeActiveModal = () => {
-    setActiveModal(null);
+    setActiveModal("");
   };
 
   //REGISTRATION MODAL
@@ -157,6 +157,13 @@ function App() {
       document.removeEventListener("keydown", handleEscClose);
     };
   }, [activeModal]);
+
+  // useEffect(() => {
+  //   if (!activeModal) return;
+
+  //   const handleMouseClose = ()
+  // })
+  
 
   //API GET CARDS
   useEffect(() => {
