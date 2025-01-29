@@ -6,7 +6,13 @@ import avatar from "../../../assets/avatar.png";
 import ToggleSwitch from "../../ToggleSwitch/ToggleSwitch";
 import { CurrentUserContext } from "../../../utils/contexts/CurrentUserContext";
 
-const Header = ({ handleAddClick, weatherData, onSignUpClick, onLoginClick, name, }) => {
+const Header = ({ 
+  handleAddClick, 
+  weatherData, 
+  onSignUpClick, 
+  onLoginClick, 
+  name 
+}) => {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -43,7 +49,7 @@ const Header = ({ handleAddClick, weatherData, onSignUpClick, onLoginClick, name
         <p className="header__name">{currentUser}</p>
         <Link to="/profile" className="header__link">
           <div className="header__profile">
-            <p className="header__username">Terrence Tegegne</p>
+            <p className="header__username"></p>
             <img
               src={avatar}
               alt="Avatar"
@@ -53,10 +59,10 @@ const Header = ({ handleAddClick, weatherData, onSignUpClick, onLoginClick, name
         </>
         ) : (
           <>
-          <button className="header__signup" onClick={onSignUpClick}>
+          <button className="modal__button" onClick={onSignUpClick}>
             Sign Up
           </button>
-          <button className="header__login" onClick={onLoginClick}>
+          <button className="modal__button" onClick={onLoginClick}>
             Log In
           </button>
           </>

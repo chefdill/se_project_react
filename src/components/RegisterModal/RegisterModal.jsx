@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import ModalWithForm from "../App/ModalWithForm/ModalWithForm";
 
 const RegisterModal = ({
@@ -38,7 +39,7 @@ const RegisterModal = ({
         <ModalWithForm
         title="Sign up"
         isOpen={activeModal}
-        onClose={closeActiveModal}
+        onClick={closeActiveModal}
         onSubmit={handleSubmit}
         >
             <label>
@@ -51,7 +52,7 @@ const RegisterModal = ({
                 placeholder="Email"
                 value={email}
                 onChange={handleEmailChange}
-                className="email_input"
+                className="modal__input"
                 />
             </label>
             <label>
@@ -63,6 +64,20 @@ const RegisterModal = ({
                 placeholder="Password"
                 value={password}
                 onChange={handlePasswordChange}
+                className="modal__input"
+                />
+            </label>
+            <label>
+                Name * 
+                <input 
+                className ="modal__input"
+                type="text"
+                name="Name"
+                minLength="1"
+                maxLength="30"
+                placeholder="Name"
+                value={name}
+                onChange={handleNameChange}
                 />
             </label>
             <label>
@@ -73,15 +88,18 @@ const RegisterModal = ({
                 placeholder="Avatar URL"
                 value={avatar}
                 onChange={handleAvatarChange}
+                className="modal__input"
                 />
             </label>
             <div className="modal__button-div">
             <button type="submit" className="modal__button">
                 Sign Up
+                {" "}
             </button>
+            or
             <button type="button" className="modal__button" onClick={onLoginClick}>
                 {" "}
-                or Log In
+                 Log In
             </button>
             </div>
         </ModalWithForm>

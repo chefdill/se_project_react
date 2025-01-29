@@ -2,7 +2,6 @@ import "./ModalWithForm.css";
 
 function ModalWithForm({
   children,
-  buttonText = "add garment",
   title,
   onClose,
   isOpen,
@@ -16,7 +15,8 @@ function ModalWithForm({
         <form className="modal__form" onSubmit={onSubmit}>
           {children}
           <button type="submit" className="modal__submit">
-            {buttonText}
+            <h3 className="modal__title">{title}</h3>
+            {/* {children} */}
           </button>
         </form>
       </div>
