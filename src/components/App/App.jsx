@@ -61,7 +61,7 @@ function App() {
 
   //REGISTRATION MODAL
   const handleRegisterModal = () => {
-    setActiveModal("register");
+    setActiveModal("signup");
   }
 
   //LOGIN MODAL
