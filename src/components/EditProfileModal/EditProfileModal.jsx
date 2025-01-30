@@ -66,3 +66,5 @@ const EditProfileModal =({
         </ModalWithForm>
     )
 }
+
+export default EditProfileModal;
