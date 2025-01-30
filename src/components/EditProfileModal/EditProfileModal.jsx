@@ -33,5 +33,36 @@ const EditProfileModal =({
         isOpen={activeModal === "edit profile"}
         onClose={closeActiveModal}
         onSubmit={handleSubmit}
+        onClick={onCreateModal}
+        >
+            <label>
+                Name * 
+                <input
+                    className="modal__input"
+                    type="text"
+                    name="name"
+                    minLength="1"
+                    maxLength="30"
+                    placeholder="Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
+            </label>
+            <label>
+                Avatar URL *
+                <input
+                    className="modal__input"
+                    type="url"
+                    name="link"
+                    minLength="1"
+                    placeholder="Avatar URL"
+                    value={imageUrl}
+                    onChange={(e) => setImageUrl(e.target.value)}
+                />
+            </label>
+            <button type="submit" className="modal__save-changes-button">
+                Save Changes
+            </button>
+        </ModalWithForm>
     )
 }
