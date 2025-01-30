@@ -129,7 +129,7 @@ function App() {
       api
         .editUser(token, name, avatar)
         .then((res) => {    
-          handleCloseModal();
+          closeActiveModal();
           setCurrentUser(res);
         })
         .catch((err) => console.error(err));
