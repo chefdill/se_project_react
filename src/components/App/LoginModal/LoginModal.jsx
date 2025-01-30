@@ -57,9 +57,12 @@ const LoginModal = ({
             <div className="modal__button-div">
                 <button type="submit" className="modal__button">
                     Log In
+                    {" "}
                 </button>
+                or
                 <button tyoe="submit" className="modal__button" onClick={onSignUpClick}>
-                    or Sign Up
+                    {" "}
+                    Sign Up
                 </button>
             </div>
         </ModalWithForm>

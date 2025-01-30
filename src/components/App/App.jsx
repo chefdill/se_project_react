@@ -14,6 +14,7 @@ import CurrentTemperatureUnitContext from "../../utils/contexts/CurrentTemperatu
 import { CurrentUserContext } from "../../utils/contexts/CurrentUserContext.js";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import LoginModal from "./LoginModal/LoginModal.jsx";
+import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx";
 import Auth from "../../utils/auth.js";
 
 const api = new Api({
@@ -62,13 +63,18 @@ function App() {
   //REGISTRATION MODAL
   const handleRegisterModal = () => {
     setActiveModal("signup");
-  }
+  };
 
   //LOGIN MODAL
   const handleLoginModal = () => {
     setActiveModal("login");
-  }
+  };
 
+  //EDIT MODAL
+  const handleEditModal = () => {
+    setActiveModal("edit");
+  };
+ 
   const toggleModal = () => {
     setActiveModal((prevModal) => 
       prevModal === "signup" ? "login" : "signup"
@@ -114,6 +120,19 @@ function App() {
       setIsLoggedIn(true);
     })
     .catch((err) => console.error(err));
+    }
+  };
+
+  const handleEdit = ({ name, avatar }) => {
+    const token =localStorage.getItem("jwt");
+    if (name && avatar) {
+      api
+        .editUser(token, name, avatar)
+        .then((res) => {    
+          handleCloseModal();
+          setCurrentUser(res);
+        })
+        .catch((err) => console.error(err));
     }
   };
 
@@ -266,9 +285,18 @@ function App() {
 
           <LoginModal 
             activeModal={activeModal}
+            onClose={closeActiveModal}
             handleLogin={handleLogin}
             onCreateModal={handleLoginModal}
             onSignUpClick={toggleModal}
+          />
+
+          <EditProfileModal 
+            activeModal={activeModal}
+            onClose={closeActiveModal}
+            handleEdit={handleEdit}
+            onSubmit={handleEdit}
+            onCreateModal={handleEditModal}
           />
           <Footer />
         </CurrentTemperatureUnitContext.Provider>

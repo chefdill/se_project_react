@@ -1,11 +1,11 @@
 import React,{ useState, useEffect, useContext } from "react";
 import ModalWithForm from "../App/ModalWithForm/ModalWithForm";
-import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import { CurrentUserContext } from "../../utils/contexts/CurrentUserContext";
 
 const EditProfileModal =({
-    closeActiveModal,
     activeModal,
-    onSubmit,
+    closeActiveModal,
+    handleSubmit,
     onCreateModal,
     handleEditProfile,
 }) => {
@@ -14,11 +14,11 @@ const EditProfileModal =({
     const [imageUrl, setImageUrl] = useState('');
 
     useEffect(() => {
-        if (isOpen) {
+        if (activeModal) {
             setName(currentUser?.name);
             setImageUrl(currentUser?.avatar);
         }
-    }, [isOpen]);
+    }, [activeModal]);
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -31,8 +31,8 @@ const EditProfileModal =({
         buttonText="Save Changes"
         isOpen={activeModal === "edit profile"}
         onClose={closeActiveModal}
-        onSubmit={handleSubmit}
         onClick={onCreateModal}
+        onSubmit={handleSubmit}
         >
             <label>
                 Name * 
@@ -63,7 +63,7 @@ const EditProfileModal =({
                 Save Changes
             </button>
         </ModalWithForm>
-    )
-}
+    );
+};
 
 export default EditProfileModal;
