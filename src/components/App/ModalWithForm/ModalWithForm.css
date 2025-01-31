@@ -67,7 +67,7 @@
 
 .modal__button{
     border: none;
-    background-color: clear;
+    background: none;
 }
 
 .modal__button-div{
