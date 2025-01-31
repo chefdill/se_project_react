@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const LoginModal = ({
-    closeActiveModal,
+    onClose,
     handleLogin,
     activeModal,
     onSignUpClick,
@@ -26,7 +26,7 @@ const LoginModal = ({
         <ModalWithForm
         title="Login"
         isOpen={activeModal === "login"}
-        onClose={closeActiveModal}
+        onClose={onClose}
         onSubmit={handleSubmit}
         >
             <label>

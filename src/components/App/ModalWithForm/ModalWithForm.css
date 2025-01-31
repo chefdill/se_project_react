@@ -68,6 +68,12 @@
 .modal__button{
     border: none;
     background: none;
+    color: grey;
+}
+
+.modal__button-header{
+    border: none;
+    background: none;
 }
 
 .modal__button-div{

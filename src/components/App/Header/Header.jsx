@@ -58,10 +58,10 @@ const Header = ({
         </>
         ) : (
           <>
-          <button className="modal__button" onClick={onSignUpClick}>
+          <button className="modal__button-header" onClick={onSignUpClick}>
             Sign Up
           </button>
-          <button className="modal__button" onClick={onLoginClick}>
+          <button className="modal__button-header" onClick={onLoginClick}>
             Log In
           </button>
           </>
