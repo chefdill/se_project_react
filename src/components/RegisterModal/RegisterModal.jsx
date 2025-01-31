@@ -89,14 +89,13 @@ const RegisterModal = ({
                 />
             </label>
             <div className="modal__button-div">
-            <button type="submit" className="modal__button">
+            <button type="submit" className="modal__submit">
                 Sign Up
                 {" "}
             </button>
-            or
             <button type="button" className="modal__button" onClick={onLoginClick}>
                 {" "}
-                 Log In
+                or Log In
             </button>
             </div>
         </ModalWithForm>
