@@ -123,6 +123,7 @@ function App() {
     }
   };
 
+  //HANDLE EDIT PROFILE
   const handleEdit = ({ name, avatar }) => {
     const token =localStorage.getItem("jwt");
     if (name && avatar) {
@@ -134,6 +135,29 @@ function App() {
         })
         .catch((err) => console.error(err));
     }
+  };
+
+  //HANDLE CARD LIKE
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+    !isLiked
+      ? api
+        .addCardLike(id, token)
+        .then((updatedCard) => {
+          setClothingItems((cards) => 
+          cards.map((item) => (item._id === id ? updatedCard : item))
+        );
+    })
+    .catch((err) => console.log(err))
+    :
+      api
+        .removeCardLike(id, token)
+        .then((updatedCard) => {
+          setClothingItems((cards) => 
+            cards.map((item) => (item._id === id ? updatedCard : item))
+        );
+      })
+      .catch((err) => console.log(err))
   };
 
   //LOGOUT HANDLER
@@ -244,6 +268,7 @@ function App() {
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
                   handleAddClick={handleAddClick}
+                  onCardLike={handleCardLike}
                 />
               }
             />
