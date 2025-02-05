@@ -30,9 +30,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
       <button 
       onClick={handleLike} 
       className={itemLikeButton}
-      >
-        Like
-      </button>
+      />
     </li>
   );
 }

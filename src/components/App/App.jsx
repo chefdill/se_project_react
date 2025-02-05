@@ -94,7 +94,7 @@ function App() {
   };
   
   //HANDLE REGISTRATION
-  const handleRegistration = ({ name, avatar, email, password }) => {
+  const handleRegistration = ( name, avatar, email, password ) => {
     if (name && avatar && email && password) {
       auth
       .registerUser({ name, avatar, email, password })
@@ -107,7 +107,7 @@ function App() {
   }; 
 
   //AUTHORIZING LOGIN
-  const handleLogin = ({ email, password }) => {
+  const handleLogin = ( email, password ) => {
     if(email && password) {
       auth
       .loginUser({ email, password })
@@ -217,7 +217,7 @@ function App() {
         setClothingItems(res);
         console.log(res);
       })
-      .catch(console.error);
+      .catch((err) => console.error(err));
   }, []);
 
   //API GET WEATHER
