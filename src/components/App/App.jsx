@@ -97,7 +97,7 @@ function App() {
   const handleRegistration = ( name, avatar, email, password ) => {
     if (name && avatar && email && password) {
       auth
-      .registerUser({ name, avatar, email, password })
+      .registerUser( name, avatar, email, password )
       .then((res) => {
         console.log(res);
         closeActiveModal();
