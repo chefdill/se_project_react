@@ -29,12 +29,12 @@ const RegisterModal = ({
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleRegistration(
+        handleRegistration({
             name, 
             avatar, 
             email, 
             password
-        );
+        });
     };
 
     return (

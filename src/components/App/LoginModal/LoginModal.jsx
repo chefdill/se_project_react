@@ -20,10 +20,10 @@ const LoginModal = ({
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleLogin(
+        handleLogin({
             email, 
             password
-        );
+        });
     };
     return (
         <ModalWithForm
