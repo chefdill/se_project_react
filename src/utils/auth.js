@@ -16,7 +16,7 @@ _addToStorage(res) {
     return res.token;
 }
 
-registerUser(name, avatar, email, password) {
+registerUser({ name, avatar, email, password }) {
     return fetch(`${this.baseUrl}/signup`, {
         method: "POST",
         headers: this.headers,
@@ -29,7 +29,7 @@ registerUser(name, avatar, email, password) {
     }).then(this._checkResponse);
 }
 
-loginUser(email, password) {
+loginUser({ email, password }) {
     return fetch(`${this.baseUrl}/signin`, {
         method: "POST",
         headers: this.headers,
