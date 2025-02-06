@@ -111,7 +111,7 @@ const handleRegistration = ({ name, avatar, email, password }) => {
   const handleLogin = ({ email, password }) => {
     if(email && password) {
       auth
-      .loginUser({ email, password })
+      .loginUser( email, password )
       .then((token) => {
         return auth.verifyToken(token);
     })
