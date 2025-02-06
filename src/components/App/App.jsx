@@ -101,6 +101,7 @@ function App() {
       .then((res) => {
         console.log(res);
         closeActiveModal();
+        console.log(name, avatar, email, password);
     })
     .catch((err) => console.error(err));
     }
@@ -202,13 +203,6 @@ function App() {
     };
   }, [activeModal]);
 
-  // useEffect(() => {
-  //   if (!activeModal) return;
-
-  //   const handleMouseClose = ()
-  // })
-  
-
   //API GET CARDS
   useEffect(() => {
     api
@@ -281,8 +275,8 @@ function App() {
                   clothingItems={clothingItems}
                   handleAddClick={handleAddClick}
                   onLogoutClick={handleLogout}
-                />)
-                : <Navigate to="/" />
+                />
+                ) : <Navigate to="/" />
               }
             />
           </Routes>
