@@ -94,16 +94,34 @@ function App() {
   };
   
   //HANDLE REGISTRATION
-  const handleRegistration = ( name, avatar, email, password ) => {
+  // const handleRegistration = (name, avatar, email, password) => {
+  //   if (name && avatar && email && password) {
+  //     auth
+  //     .registerUser({name, avatar, email, password})
+  //     .then((res) => {
+  //       console.log(res);
+  //       closeActiveModal();
+  //       console.log(name, avatar, email, password);
+  //   })
+  //   .catch((err) => console.error(err));
+  //   }
+  // }; 
+  const handleRegistration = (name, avatar, email, password) => {
     if (name && avatar && email && password) {
       auth
-      .registerUser( name, avatar, email, password )
-      .then((res) => {
-        console.log(res);
-        closeActiveModal();
-        console.log(name, avatar, email, password);
-    })
-    .catch((err) => console.error(err));
+        .registerUser({ name, avatar, email, password }) // Pass as an object
+        .then((res) => {
+          if (res.token) {
+            localStorage.setItem("jwt", res.token);
+            return auth.verifyToken(res.token);
+          }
+        })
+        .then((user) => {
+          setCurrentUser(user);
+          setIsLoggedIn(true);
+          closeActiveModal();
+        })
+        .catch((err) => console.error(err));
     }
   }; 
 

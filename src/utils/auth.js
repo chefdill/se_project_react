@@ -16,8 +16,8 @@ _addToStorage(res) {
     return res.token;
 }
 
-registerUser({ name, avatar, email, password }) {
-    return fetch(this.baseUrl + "/signup/", {
+registerUser(name, avatar, email, password) {
+    return fetch(`${this.baseUrl}/signup`, {
         method: "POST",
         headers: this.headers,
         body: JSON.stringify({
@@ -29,10 +29,10 @@ registerUser({ name, avatar, email, password }) {
     }).then(this._checkResponse);
 }
 
-loginUser({ email, password }) {
-    return fetch(this.baseUrl + "/signin/", {
+loginUser(email, password) {
+    return fetch(`${this.baseUrl}/signin`, {
         method: "POST",
-        headers: this._headers,
+        headers: this.headers,
         body: JSON.stringify({
             email,
             password
@@ -43,10 +43,10 @@ loginUser({ email, password }) {
 }
 
 verifyToken(token) {
-    return fetch(this.baseUrl + "/signout/", {
-        method: "POST",
+    return fetch(`${this.baseUrl}/users/me`, {
+        method: "GET",
         headers: {
-            ...this._headers,
+            ...this.headers,
             Authorization: `Bearer ${token}`
         },
     }).then(this._checkResponse);    
