@@ -99,7 +99,7 @@ const handleRegistration = ({ name, avatar, email, password }) => {
     auth
     .registerUser({ name, avatar, email, password })
       .then((res) => {  
-        return auth.loginUser(email, password);
+        return auth.loginUser({ email, password });
       })
     .then((data) => {
       if (data.token) {
