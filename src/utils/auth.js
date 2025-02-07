@@ -8,6 +8,11 @@ _checkResponse(res) {
     if (res.ok) {
         return res.json();
     }
+    console.error('Server Error:', {
+        status: res.status,
+        statusText: res.statusText,
+        data: data
+    });
     return Promise.reject(`Error ${res.status}`);
 }
 
@@ -17,6 +22,7 @@ _addToStorage(res) {
 }
 
 registerUser({ name, avatar, email, password }) {
+    console.log('Sending registration request with:', { name, avatar, email, password: '***' });
     return fetch(this.baseUrl + "/signup", {
         method: "POST",
         headers: this.headers,
