@@ -176,8 +176,13 @@ const handleRegistration = ({ name, avatar, email, password }) => {
 
   //DELETE ITEM
   const deleteItemSubmit = () => {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
+      console.error("No token found");
+      return;
+    }
     api
-      .deleteItem(selectedCard._id)
+      .deleteItem(selectedCard._id, token)
       .then(() => {
         const newClothingItems = clothingItems.filter((item) => {
           return item._id !== selectedCard._id;
