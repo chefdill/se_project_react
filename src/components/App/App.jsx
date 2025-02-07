@@ -120,7 +120,7 @@ const handleRegistration = ({ name, avatar, email, password }) => {
   const handleLogin = ({ email, password }) => {
     if(email && password) {
       auth
-      .loginUser( email, password )
+      .loginUser({ email, password })
       .then((token) => {
         return auth.verifyToken(token);
     })
@@ -172,8 +172,8 @@ const handleRegistration = ({ name, avatar, email, password }) => {
 
   //LOGOUT HANDLER
   const handleLogout = () => {
-    setIsloggedIn(false);
-    setCurrentUser(currentUser === null);
+    setIsLoggedIn(false);
+    setCurrentUser(null);
     localStorage.removeItem("jwt");
   }
 
