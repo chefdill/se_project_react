@@ -36,7 +36,6 @@ class Api {
   }
 
   deleteItem(id, token) {
-    // const token = localStorage.getItem("jwt");
     return fetch(this.baseUrl + "/items/" + id, {
       method: "DELETE",
       headers:{ 

@@ -96,12 +96,21 @@ function App() {
   //HANDLE REGISTRATION
 const handleRegistration = ({ name, avatar, email, password }) => {
     if (name && avatar && email && password) {
-      auth
+    auth
     .registerUser({ name, avatar, email, password })
-      .then((res) => {
-        console.log(res);
-        closeActiveModal();
-        console.log(name, avatar, email, password);
+      .then((res) => {  
+        return auth.loginUser(email, password);
+      })
+    .then((data) => {
+      if (data.token) {
+        localStorage.setItem("jwt", data.token);
+        return auth.verifyToken(data.token);
+      }
+    })
+    .then((userData) => {
+      setCurrentUser(userData);
+      setIsLoggedIn(true);
+      closeActiveModal();
     })
     .catch((err) => console.error(err));
     }
