@@ -77,8 +77,6 @@
 }
 
 .modal__button-div{
-    /* width: 80px;
-    height: 40px; */
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -103,6 +101,7 @@
     border: none;
     display: flex;
     flex-direction: column;
+    padding-left: 0;
 }
 
 .modal__radio_button_input{

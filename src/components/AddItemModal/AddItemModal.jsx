@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ModalWithForm from "../App/ModalWithForm/ModalWithForm";
 
 function AddItemModal({ 
-  closeActiveModal, 
+  onClose, 
   onAddItem, 
   activeModal 
 }) {
@@ -35,7 +35,7 @@ function AddItemModal({
       title="New Garment"
       buttonText="Add Garment"
       isOpen={activeModal === "add-garment"}
-      onClose={closeActiveModal}
+      onClose={onClose}
       onSubmit={handleSubmit}
     >
       <label htmlFor="name" className="modal__label">
@@ -96,6 +96,9 @@ function AddItemModal({
           Cold
         </label>
       </fieldset>
+      <button className="modal__submit">
+          Add Garment
+      </button>
     </ModalWithForm>
   );
 }
