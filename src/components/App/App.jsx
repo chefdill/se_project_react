@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate,useNavigate } from "react-router-dom";
 import Api from "../../utils/api";
 import "./App.css";
 import Header from "./Header/Header";
@@ -37,12 +37,16 @@ function App() {
     temp: { F: 999 },
     city: "",
   });
+
+  const navigate = useNavigate();
+
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [clothingItems, setClothingItems] = useState([]);
+
 
   //ACTIVATES THE ADDED CARD
   const handleAddClick = () => {
@@ -174,7 +178,9 @@ const handleRegistration = ({ name, avatar, email, password }) => {
   const handleLogout = () => {
     setIsLoggedIn(false);
     setCurrentUser(null);
+    setClothingItems([]);
     localStorage.removeItem("jwt");
+    navigate("/");
   }
 
   //SWITCHING F => C
@@ -266,6 +272,7 @@ const handleRegistration = ({ name, avatar, email, password }) => {
           weatherData={weatherData} 
           onSignUpClick={handleRegisterModal}
           onLoginClick={handleLoginModal}
+          isLoggedIn={isLoggedIn}
           />
           <Routes>
             <Route
@@ -277,6 +284,7 @@ const handleRegistration = ({ name, avatar, email, password }) => {
                   clothingItems={clothingItems}
                   handleAddClick={handleAddClick}
                   onCardLike={handleCardLike}
+                  isLoggedIn={isLoggedIn}
                 />
               }
             />
@@ -338,6 +346,5 @@ const handleRegistration = ({ name, avatar, email, password }) => {
     </CurrentUserContext.Provider>
   );
  }
-
 
 export default App;
