@@ -49,8 +49,8 @@ loginUser({ email, password }) {
 }
 
 verifyToken(token) {
-    return fetch(this.baseUrl + "/signout", {
-        method: "POST",
+    return fetch(this.baseUrl + "/users/me", {
+        method: "GET",
         headers: {
             ...this.headers,
             Authorization: `Bearer ${token}`

@@ -17,9 +17,8 @@ const Header = ({
     day: "numeric",
   });
 
+  const currentUser = React.useContext(CurrentUserContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const { currentUser } = React.useContext(CurrentUserContext);
 
   React.useEffect(() => {
     if (currentUser) {
@@ -45,12 +44,12 @@ const Header = ({
         <button className="header__add-clothes-btn" onClick={handleAddClick}>
           + Add Clothes
         </button>
-        <p className="header__name">{currentUser}</p>
+        <p className="header__name">{currentUser.name}</p>
         <Link to="/profile" className="header__link">
           <div className="header__profile">
             <p className="header__username"></p>
             <img
-              src={avatar}
+              src={currentUser.avatar || avatar}
               alt="Avatar"
             />
           </div>
