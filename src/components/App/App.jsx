@@ -251,14 +251,29 @@ const handleRegistration = ({ name, avatar, email, password }) => {
       auth
       .verifyToken(token)
       .then((user) => {
-        setCurrentUser(user);
         setIsLoggedIn(true);
+        setCurrentUser(user);
+        api.getCards(token)
+        .then((items) => {
+          setClothingItems(items);
+        })
+        .catch((err) => console.error(err));
     })
     .catch((err) => {
       console.error(err);
+      localStorage.removeItem("jwt");
+      setIsLoggedIn(false);
+      setCurrentUser({});
+      setClothingItems([]);
     });
+    } else {
+      setIsLoggedIn(false);
+      setCurrentUser({});
+      setClothingItems([]);
     }
   }, []);
+
+
 
   return (
     <CurrentUserContext.Provider value={ currentUser }>

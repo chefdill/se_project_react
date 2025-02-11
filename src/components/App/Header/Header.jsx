@@ -44,25 +44,29 @@ const Header = ({
         <button className="header__add-clothes-btn" onClick={handleAddClick}>
           + Add Clothes
         </button>
-        <p className="header__name">{currentUser.name}</p>
+        {/* <p className="header__name">{currentUser.name}</p> */}
         <Link to="/profile" className="header__link">
           <div className="header__profile">
-            <p className="header__username"></p>
+            <p className="header__username">{currentUser.name}</p>
             <img
               src={currentUser.avatar || avatar}
               alt="Avatar"
+              className="header__avatar"
             />
           </div>
         </Link>
+
         </>
         ) : (
           <>
+          <div className="header__auth-buttons">
           <button className="modal__button-header" onClick={onSignUpClick}>
             Sign Up
           </button>
           <button className="modal__button-header" onClick={onLoginClick}>
             Log In
           </button>
+          </div>
           </>
         )}
       </div>
