@@ -1,5 +1,7 @@
-.sidebar {
+.sidebar{
     display: flex;
+    flex-direction: column;
+    width: 229px;
 }
 
 .sidebar__avatar {
@@ -15,14 +17,37 @@
 
 }
 
-.sidebar__logout-button {
-    background-color: transparent;
-    border: 1px solid #000;
-    color: #fff;
-    padding: 8px 16px;
-    cursor: pointer;
+.sidebar__user-buttons{
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+}
+
+.sidebar__user-info-button {
+    display: flex;
+    background-color: transparent;
+    border: none;
+    color: black;
+    padding: 0;
+}
+
+.sidebar__user-info-button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.sidebar__logout-button {
+    display: flex;
+    background-color: transparent;
+    border: none;
+    color: black;
+    padding: 0;
+    /* padding: 8px 16px; */
+    cursor: pointer;
+    margin-top: 10px;
     transition: all 0.3s ease;
+
 }
 
 .sidebar__logout-button:hover {
