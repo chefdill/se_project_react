@@ -9,26 +9,35 @@ function ItemModal({
   onDelete 
 }) {
   const currentUser = useContext(CurrentUserContext);
-  const isOwn = selectedCard.owner === currentUser._id;
-  const itemDeleteModal = (
-    `modal__delete-button ${isOwn ? '' : 'modal__delete-button_hidden'}`
-  );
 
+  // Guard clause - if no selectedCard or no activeModal, don't render
+  if (!selectedCard || activeModal !== "preview") {
+    return null;
+  }
+
+  // Check if the current user owns the item
+  const isOwn = currentUser && selectedCard && selectedCard.owner && 
+    currentUser._id === selectedCard.owner;
+
+  const itemDeleteButtonClass = `modal__delete-button ${
+    isOwn ? '' : 'modal__delete-button_hidden'
+  }`;
+  
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__content_item">
         <button type="button" className="modal__close-item" onClick={onClose} />
         <img
-          src={selectedCard.link}
-          alt={selectedCard.name}
+          src={selectedCard.link || ''}
+          alt={selectedCard.name || ''}
           className="modal__image"
         />
         <div className="modal__footer">
-          <h2 className="modal__caption">{selectedCard.name}</h2>
+          <h2 className="modal__caption">{selectedCard.name || ''}</h2>
           <button type="button" className={itemDeleteModal} onClick={onDelete}>
             Delete Item
           </button>
-          <p className="modal__weather">Weather: {selectedCard.weather}</p>
+          <p className="modal__weather">Weather: {selectedCard.weather || ''}</p>
         </div>
       </div>
     </div>

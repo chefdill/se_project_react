@@ -62,6 +62,7 @@ function App() {
   //CLOSE MODAL
   const closeActiveModal = () => {
     setActiveModal("");
+    setSelectedCard(null);
   };
 
   //REGISTRATION MODAL
@@ -176,9 +177,11 @@ const handleRegistration = ({ name, avatar, email, password }) => {
 
   //LOGOUT HANDLER
   const handleLogout = () => {
+    closeActiveModal();
     setIsLoggedIn(false);
     setCurrentUser(null);
     setClothingItems([]);
+    setSelectedCard(null);
     localStorage.removeItem("jwt");
     navigate("/");
   }

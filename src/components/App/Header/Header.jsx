@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import wtwr from "../../../assets/wtwr.svg";
@@ -12,21 +12,25 @@ const Header = ({
   onSignUpClick, 
   onLoginClick, 
 }) => {
+  const currentUser = useContext(CurrentUserContext);
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
 
-  const currentUser = React.useContext(CurrentUserContext);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const userName = currentUser?.name || '';
+  const userAvatar = currentUser?.avatar || avatar;
 
-  React.useEffect(() => {
-    if (currentUser) {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
-  }, [currentUser]);
+  // const currentUser = React.useContext(CurrentUserContext);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // React.useEffect(() => {
+  //   if (currentUser.name) {
+  //     setIsLoggedIn(true);
+  //   } else {
+  //     setIsLoggedIn(false);
+  //   }
+  // }, [currentUser]);
 
   return (
     <header className="header">
@@ -34,12 +38,11 @@ const Header = ({
         <img src={wtwr} alt="Logo" className="header__logo" />
       </Link>
       <p className="header__date-and-location">
-        {" "}
-        {currentDate}, {weatherData.city}{" "}
+        {currentDate}, {weatherData?.city || ''}
       </p>
       <div className="header__user-container">
       <ToggleSwitch />
-        {isLoggedIn ? (
+        {isLoggedIn && currentUser? (
         <>
         <button className="header__add-clothes-btn" onClick={handleAddClick}>
           + Add Clothes
@@ -47,9 +50,9 @@ const Header = ({
         {/* <p className="header__name">{currentUser.name}</p> */}
         <Link to="/profile" className="header__link">
           <div className="header__profile">
-            <p className="header__username">{currentUser.name}</p>
+            <p className="header__username">{userName}</p>
             <img
-              src={currentUser.avatar || avatar}
+              src={userAvatar}
               alt="Avatar"
               className="header__avatar"
             />
