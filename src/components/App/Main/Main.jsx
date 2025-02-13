@@ -19,8 +19,8 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
     ) {
       return "warm";
     } else if (
-      (temp <= 45 && currentTemperatureUnit === "F") ||
-      (temp <= 7.22 && currentTemperatureUnit === "C")
+      (temp <= 59 && currentTemperatureUnit === "F") ||
+      (temp <= 15.55 && currentTemperatureUnit === "C")
     ) {
       return "cold";
     }
