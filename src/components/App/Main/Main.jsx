@@ -32,7 +32,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
 
   return (
     <main>
-      <WeatherCard weatherData={temp} />
+      <WeatherCard weatherData={weatherData} temp={temp} />
       <section className="cards">
         <p className="cards__text">
           Today is {temp} &deg;
