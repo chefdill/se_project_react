@@ -17,10 +17,12 @@ const currentUser = useContext(CurrentUserContext);
       <p className="sidebar__username">{currentUser.name}</p>
       </div>
       <div className="sidebar__user-buttons">
-        <button className="sidebar__user-info-button">
+        <button 
+        className="sidebar__user-info-button"
+        
+        >
           Change profile data
         </button>
-      
       <button 
       className="sidebar__logout-button" 
       onClick={onLogoutClick}
