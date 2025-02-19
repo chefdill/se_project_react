@@ -91,7 +91,7 @@ function App() {
     api
       .addItem(item)
       .then((res) => {
-        setClothingItems([res, ...clothingItems]);
+        setClothingItems([res.item, ...clothingItems]);
         console.log(item);
         closeActiveModal();
       })
