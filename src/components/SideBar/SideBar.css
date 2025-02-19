@@ -17,6 +17,11 @@
 
 }
 
+.sidebar__user-info{
+    display: flex;
+    flex-direction: row;
+}
+
 .sidebar__user-buttons{
     margin-top: 20px;
     display: flex;
