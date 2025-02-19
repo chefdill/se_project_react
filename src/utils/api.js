@@ -29,7 +29,7 @@ class Api {
       },
       body: JSON.stringify({
         name,
-        link,
+        imageUrl: link,
         weather,
       }),
     }).then(this._checkResponse);

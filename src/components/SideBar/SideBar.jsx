@@ -18,9 +18,7 @@ const currentUser = useContext(CurrentUserContext);
       </div>
       <div className="sidebar__user-buttons">
         <button 
-        className="sidebar__user-info-button"
-        
-        >
+        className="sidebar__user-info-button">
           Change profile data
         </button>
       <button 
