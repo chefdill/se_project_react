@@ -36,6 +36,10 @@
     cursor: pointer;
 }
 
+.modal__delete-button{
+    dsiplay: flex;
+}
+
 .delete__modal {
     position: absolute;
     width: 101px;

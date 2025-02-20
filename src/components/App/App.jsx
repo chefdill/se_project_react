@@ -160,7 +160,7 @@ const handleRegistration = ({ name, avatar, email, password }) => {
         .addCardLike(_id, token)
         .then((updatedCard) => {
           setClothingItems((cards) => 
-          cards.map((item) => (item._id === _id ? updatedCard : item))
+          cards.map((item) => item._id === _id ? updatedCard.data : item)
         );
     })
     .catch((err) => console.log(err))
@@ -169,7 +169,7 @@ const handleRegistration = ({ name, avatar, email, password }) => {
         .removeCardLike(_id, token)
         .then((updatedCard) => {
           setClothingItems((cards) => 
-            cards.map((item) => (item._id === _id ? updatedCard : item))
+            cards.map((item) => item._id === _id ? updatedCard.data : item)
         );
       })
       .catch((err) => console.log(err))
