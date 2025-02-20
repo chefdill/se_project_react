@@ -153,23 +153,23 @@ const handleRegistration = ({ name, avatar, email, password }) => {
   };
 
   //HANDLE CARD LIKE
-  const handleCardLike = ({ id, isLiked }) => {
+  const handleCardLike = ({ _id, isLiked }) => {
     const token = localStorage.getItem("jwt");
     !isLiked
       ? api
-        .addCardLike(id, token)
+        .addCardLike(_id, token)
         .then((updatedCard) => {
           setClothingItems((cards) => 
-          cards.map((item) => (item._id === id ? updatedCard : item))
+          cards.map((item) => (item._id === _id ? updatedCard : item))
         );
     })
     .catch((err) => console.log(err))
     :
       api
-        .removeCardLike(id, token)
+        .removeCardLike(_id, token)
         .then((updatedCard) => {
           setClothingItems((cards) => 
-            cards.map((item) => (item._id === id ? updatedCard : item))
+            cards.map((item) => (item._id === _id ? updatedCard : item))
         );
       })
       .catch((err) => console.log(err))

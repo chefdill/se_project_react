@@ -36,6 +36,7 @@
 
 .card__like-button {
     position: static;
+    background: none;
     background-image: url(../../../assets/likebutton.png);
     border: none;
     width: 22px;
