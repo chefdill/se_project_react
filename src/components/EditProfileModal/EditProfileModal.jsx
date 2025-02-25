@@ -3,9 +3,10 @@ import ModalWithForm from "../App/ModalWithForm/ModalWithForm";
 import { CurrentUserContext } from "../../utils/contexts/CurrentUserContext";
 
 const EditProfileModal =({
-    isOpen,
-    closeActiveModal,
+    activeModal,
+    onClose,
     handleSubmit,
+    isOpen,
     onCreateModal,
     handleEditProfile,
 }) => {
@@ -29,9 +30,9 @@ const EditProfileModal =({
         <ModalWithForm
         title="Change Profile Data"
         buttonText="Save Changes"
-        isOpen={isOpen}
-        onClose={closeActiveModal}
-        onClick={onCreateModal}
+        isOpen={activeModal === "Change Profile Data"}
+        onClose={onClose}
+        // onClick={onCreateModal}
         onSubmit={handleSubmit}
         >
             <label>
