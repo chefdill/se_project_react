@@ -5,23 +5,22 @@ import { CurrentUserContext } from "../../utils/contexts/CurrentUserContext";
 const EditProfileModal =({
     activeModal,
     onClose,
-    handleSubmit,
     isOpen,
     onCreateModal,
-    handleEditProfile,
+    handleEdit,
 }) => {
     const [name, setName] = useState("");
     const currentUser = useContext(CurrentUserContext);
     const [imageUrl, setImageUrl] = useState('');
 
     useEffect(() => {
-        if (isOpen) {
+        if (activeModal === "edit") {
             setName(currentUser?.name);
             setImageUrl(currentUser?.avatar);
         }
-    }, [isOpen]);
+    }, [activeModal, currentUser]);
 
-    handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit({name, avatar: imageUrl});
     };
@@ -30,9 +29,8 @@ const EditProfileModal =({
         <ModalWithForm
         title="Change Profile Data"
         buttonText="Save Changes"
-        isOpen={activeModal === "Change Profile Data"}
+        isOpen={activeModal === "edit"}
         onClose={onClose}
-        // onClick={onCreateModal}
         onSubmit={handleSubmit}
         >
             <label>

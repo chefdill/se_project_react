@@ -354,7 +354,7 @@ const handleRegistration = ({ name, avatar, email, password }) => {
             activeModal={activeModal}
             onClose={closeActiveModal}
             handleEdit={handleEdit}
-            onSubmit={handleEdit}
+            isOpen={activeModal === "edit"}
             onCreateModal={handleEditModal}
           />
           <Footer />
