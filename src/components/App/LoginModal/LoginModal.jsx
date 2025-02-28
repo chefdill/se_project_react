@@ -62,7 +62,7 @@ const LoginModal = ({
                     Log In
                     {" "}
                 </button>
-                <button tyoe="submit" className="modal__button" onClick={onSignUpClick}>
+                <button type="submit" className="modal__button" onClick={onSignUpClick}>
                     {" "}
                     or Sign Up
                 </button>

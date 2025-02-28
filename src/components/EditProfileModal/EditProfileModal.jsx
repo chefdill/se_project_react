@@ -22,7 +22,7 @@ function EditProfileModal({
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit({
+        handleEdit({
             name, 
             avatar: imageUrl
         });
