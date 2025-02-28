@@ -115,3 +115,14 @@
 .modal__label_type_radio{
     padding-bottom: 8px;
 }
+
+.modal__save-changes-button{
+    width: 124px;
+    height: 36px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: "Cabinet Grotesk-Bold";
+}

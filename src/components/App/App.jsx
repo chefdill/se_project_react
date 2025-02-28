@@ -140,7 +140,7 @@ const handleRegistration = ({ name, avatar, email, password }) => {
 
   //HANDLE EDIT PROFILE
   const handleEdit = ({ name, avatar }) => {
-    const token =localStorage.getItem("jwt");
+    const token = localStorage.getItem("jwt");
     if (name && avatar) {
       api
         .editUser(token, name, avatar)
@@ -315,6 +315,7 @@ const handleRegistration = ({ name, avatar, email, password }) => {
                   clothingItems={clothingItems}
                   handleAddClick={handleAddClick}
                   onLogoutClick={handleLogout}
+                  handleEditModal={handleEditModal}
                 />
                 ) : <Navigate to="/" />
               }

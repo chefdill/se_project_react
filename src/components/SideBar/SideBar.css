@@ -29,7 +29,7 @@
     max-width: 200px;
 }
 
-.sidebar__user-info-button {
+.sidebar__user-change-profile-button {
     display: flex;
     background-color: transparent;
     border: none;
@@ -37,7 +37,7 @@
     padding: 0;
 }
 
-.sidebar__user-info-button:hover {
+.sidebar__user-change-profile-button:hover {
     background-color: #000;
     color: #fff;
 }
