@@ -37,7 +37,7 @@
 .card__like-button {
     position: static;
     background: none;
-    background-image: url(../../../assets/likebutton.png);
+    background-image: url(../../../assets/unlikebutton.png);
     border: none;
     width: 22px;
     height: 20px;
@@ -48,5 +48,5 @@
 }
 
 .card__like-button_liked{
-    
+    background-image: url(../../../assets/likebutton.png);
 }
