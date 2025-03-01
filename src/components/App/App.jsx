@@ -312,6 +312,7 @@ function App() {
                       clothingItems={clothingItems}
                       handleAddClick={handleAddClick}
                       onLogoutClick={handleLogout}
+                      handleCardLike={handleCardLike}
                       handleEditModal={handleEditModal}
                     />
                   ) : (

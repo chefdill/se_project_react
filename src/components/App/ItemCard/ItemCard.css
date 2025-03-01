@@ -34,7 +34,7 @@
    border-radius: 20px;
 } 
 
-.card__like-button {
+.unlike_button {
     position: static;
     background: none;
     background-image: url(../../../assets/unlikebutton.png);
@@ -47,6 +47,6 @@
     padding: 0;
 }
 
-.card__like-button_liked{
+.like_button {
     background-image: url(../../../assets/likebutton.png);
 }
