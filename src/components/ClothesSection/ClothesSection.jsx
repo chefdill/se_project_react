@@ -1,7 +1,7 @@
 import "./ClothesSection.css";
 import ItemCard from "../App/ItemCard/ItemCard";
 
-function ClothesSection({ handleCardClick, clothingItems, handleAddClick }) {
+function ClothesSection({ handleCardClick, clothingItems, handleAddClick, handleCardLike}) {
   const profileCards = clothingItems;
 
   return (
@@ -19,6 +19,7 @@ function ClothesSection({ handleCardClick, clothingItems, handleAddClick }) {
               key={item._id}
               item={item}
               onCardClick={handleCardClick}
+              onCardLike={handleCardLike}
             />
           );
         })}
