@@ -4,7 +4,7 @@ import ItemCard from "../ItemCard/ItemCard";
 import "./Main.css";
 import CurrentTemperatureUnitContext from "../../../utils/contexts/CurrentTemperatureUnitContext.jsx";
 
-function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
+function Main({ weatherData, handleCardClick, clothingItems, handleCardLike }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const temp = weatherData?.temp?.[currentTemperatureUnit];
   const weatherType = useMemo(() => {
@@ -45,7 +45,7 @@ function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
                 key={item._id}
                 item={item}
                 onCardClick={handleCardClick}
-                onCardLike={onCardLike}
+                handleCardLike={handleCardLike}
               />
             );
           })}

@@ -27,7 +27,7 @@ function Profile({
           handleCardClick={handleCardClick}
           clothingItems={clothingItems}
           handleAddClick={handleAddClick}
-          onCardLike={handleCardLike}
+          handleCardLike={handleCardLike}
         />
       </section>
     </div>

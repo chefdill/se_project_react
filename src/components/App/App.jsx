@@ -298,7 +298,7 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     handleAddClick={handleAddClick}
-                    onCardLike={handleCardLike}
+                    handleCardLike={handleCardLike}
                     isLoggedIn={isLoggedIn}
                   />
                 }
