@@ -49,4 +49,13 @@
 
 .like_button {
     background-image: url(../../../assets/likebutton.png);
+    position: static;
+    background: none;
+    border: none;
+    width: 22px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    padding: 0;
 }

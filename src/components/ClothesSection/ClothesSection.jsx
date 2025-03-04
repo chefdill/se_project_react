@@ -19,7 +19,7 @@ function ClothesSection({ handleCardClick, clothingItems, handleAddClick, handle
               key={item._id}
               item={item}
               onCardClick={handleCardClick}
-              onCardLike={handleCardLike}
+              handleCardLike={handleCardLike}
             />
           );
         })}
