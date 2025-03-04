@@ -34,10 +34,10 @@
    border-radius: 20px;
 } 
 
-.unlike_button {
+.notliked_button {
     position: static;
     background: none;
-    background-image: url(../../../assets/unlikebutton.png);
+    background-image: url(../../../assets/notlikedbutton.png);
     border: none;
     width: 22px;
     height: 20px;
@@ -50,7 +50,7 @@
 .like_button {
     background-image: url(../../../assets/likebutton.png);
     position: static;
-    background: none;
+    /* background: none; */
     border: none;
     width: 22px;
     height: 20px;
