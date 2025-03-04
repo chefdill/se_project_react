@@ -3,7 +3,7 @@ import { CurrentUserContext } from "../../../utils/contexts/CurrentUserContext";
 import "./ItemCard.css";
 
 function ItemCard({ item, onCardClick, handleCardLike }) {
-  const { currentUser } = useContext(CurrentUserContext);
+  const currentUser = useContext(CurrentUserContext);
   const handleCardClick = () => {
     onCardClick(item);
   };
@@ -12,6 +12,7 @@ function ItemCard({ item, onCardClick, handleCardLike }) {
     item.likes && item.likes.some((id) => id === currentUser?._id);
 
   const handleLike = () => {
+    console.log('Like clicked, current state:', isLiked);
     handleCardLike(item, isLiked);
   };
 
