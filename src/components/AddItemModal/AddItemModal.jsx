@@ -4,7 +4,8 @@ import ModalWithForm from "../App/ModalWithForm/ModalWithForm";
 function AddItemModal({ 
   onClose, 
   onAddItem, 
-  activeModal 
+  activeModal, 
+  isLoading
 }) {
 
   const [name, setName] = useState("");
@@ -33,7 +34,7 @@ function AddItemModal({
   return (
     <ModalWithForm
       title="New Garment"
-      buttonText="Add Garment"
+      buttonText={isLoading ? "Saving..." : "Save"}
       isOpen={activeModal === "add-garment"}
       onClose={onClose}
       onSubmit={handleSubmit}

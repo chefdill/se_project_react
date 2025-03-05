@@ -46,6 +46,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [clothingItems, setClothingItems] = useState([]);
+  const[isLoading, setIsLoading] = useState(false);
 
   //ACTIVATES THE ADDED CARD
   const handleAddClick = () => {
@@ -94,7 +95,10 @@ function App() {
         console.log(item);
         closeActiveModal();
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   //HANDLE REGISTRATION
@@ -116,7 +120,10 @@ function App() {
           setIsLoggedIn(true);
           closeActiveModal();
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err))
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
   };
 
@@ -133,7 +140,10 @@ function App() {
           closeActiveModal();
           setIsLoggedIn(true);
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err))
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
   };
 
@@ -147,7 +157,10 @@ function App() {
           closeActiveModal();
           setCurrentUser(res);
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err))
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
   };
 
@@ -326,12 +339,14 @@ function App() {
               activeModal={activeModal}
               onClose={closeActiveModal}
               onAddItem={handleAddItemSubmit}
+              isLoading={isLoading}
             />
             <ItemModal
               activeModal={activeModal}
               selectedCard={selectedCard}
               onClose={closeActiveModal}
               onDelete={deleteItemSubmit}
+              isLoading={isLoading}
             />
 
             <RegisterModal
@@ -341,6 +356,7 @@ function App() {
               handleLogin={handleLogin}
               onCreateModal={handleRegisterModal}
               onLoginClick={toggleModal}
+              isLoading={isLoading}
             />
 
             <LoginModal
@@ -349,6 +365,7 @@ function App() {
               handleLogin={handleLogin}
               onCreateModal={handleLoginModal}
               onSignUpClick={toggleModal}
+              isLoading={isLoading}
             />
 
             <EditProfileModal
@@ -357,6 +374,7 @@ function App() {
               handleEdit={handleEdit}
               isOpen={activeModal === "edit"}
               onCreateModal={handleEditModal}
+              isLoading={isLoading}
             />
             <Footer />
           </CurrentTemperatureUnitContext.Provider>
