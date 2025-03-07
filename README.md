@@ -6,6 +6,19 @@ You can add clothes with link to the image.
 
 Back-end link: https://github.com/chefdill/se_project_express
 
+DOWNLOADING INSTRUCTIONS: 
+ALL IN THE TERMINAL:
+1. Clone the repository
+2. Run `npm install` to install the dependencies
+3. Run `npm start` to start the server
+4. Run `npm run dev` to start the client  
+
+
+
+
+
+
+
 
 
 
