@@ -38,7 +38,7 @@ class Api {
   deleteItem(id, token) {
     return fetch(this.baseUrl + "/items/" + id, {
       method: "DELETE",
-      headers:{ 
+      headers: {
         ...this._headers,
         Authorization: `Bearer ${token}`,
       },
@@ -51,7 +51,7 @@ class Api {
       headers: {
         ...this._headers,
         Authorization: `Bearer ${token}`,
-        },
+      },
     }).then(this._checkResponse);
   }
 
@@ -61,7 +61,7 @@ class Api {
       headers: {
         ...this._headers,
         Authorization: `Bearer ${token}`,
-        },
+      },
     }).then(this._checkResponse);
   }
 
@@ -71,12 +71,12 @@ class Api {
       headers: {
         ...this._headers,
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          avatar,
-        }),
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        avatar,
+      }),
     }).then(this._checkResponse);
   }
 }
