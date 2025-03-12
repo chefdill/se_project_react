@@ -16,6 +16,7 @@ import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import LoginModal from "./LoginModal/LoginModal.jsx";
 import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx";
 import Auth from "../../utils/auth.js";
+import ProtectedRoute from "../ProtectedRoute.jsx";
 
 const api = new Api({
   baseUrl: "http://localhost:3001",
@@ -303,36 +304,28 @@ function App() {
               isLoggedIn={isLoggedIn}
             />
             <Routes>
-              <Route
-                path="/"
-                element={
-                  <Main
-                    weatherData={weatherData}
+              <Route path="/" element={
+                <Main
+                  weatherData={weatherData}
+                  handleCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                  handleAddClick={handleAddClick}
+                  handleCardLike={handleCardLike}
+                  isLoggedIn={isLoggedIn}
+                />
+              } />
+              <Route path="/profile" element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <Profile
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     handleAddClick={handleAddClick}
+                    onLogoutClick={handleLogout}
                     handleCardLike={handleCardLike}
-                    isLoggedIn={isLoggedIn}
+                    handleEditModal={handleEditModal}
                   />
-                }
-              />
-              <Route
-                path="/profile"
-                element={
-                  isLoggedIn ? (
-                    <Profile
-                      handleCardClick={handleCardClick}
-                      clothingItems={clothingItems}
-                      handleAddClick={handleAddClick}
-                      onLogoutClick={handleLogout}
-                      handleCardLike={handleCardLike}
-                      handleEditModal={handleEditModal}
-                    />
-                  ) : (
-                    <Navigate to="/" />
-                  )
-                }
-              />
+                </ProtectedRoute>
+              } />
             </Routes>
 
             <AddItemModal
