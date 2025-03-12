@@ -34,9 +34,9 @@ function ItemModal({
         />
         <div className="modal__footer">
           <h2 className="modal__caption">{selectedCard.name || ''}</h2>
-          <button type="button" className={itemDeleteModal} onClick={onDelete}>
+          {isOwn && <button type="button" className={itemDeleteModal} onClick={onDelete}>
             Delete Item
-          </button>
+          </button>}
           <p className="modal__weather">Weather: {selectedCard.weather || ''}</p>
         </div>
       </div>
