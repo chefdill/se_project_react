@@ -166,22 +166,22 @@ function App() {
   };
 
   //HANDLE CARD LIKE
-  const handleCardLike = ({ _id, isLiked }) => {
+  const handleCardLike = ( item, isLiked ) => {
     const token = localStorage.getItem("jwt");
     !isLiked
       ? api
-          .addCardLike(_id, token)
+          .addCardLike(item._id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((item) => (item._id === _id ? updatedCard.data : item))
+              cards.map((card) => (card._id === item._id ? updatedCard.data : card))
             );
           })
           .catch((err) => console.log(err))
       : api
-          .removeCardLike(_id, token)
+          .removeCardLike(item._id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((item) => (item._id === _id ? updatedCard.data : item))
+              cards.map((card) => (card._id === item._id ? updatedCard.data : card))
             );
           })
           .catch((err) => console.log(err));
