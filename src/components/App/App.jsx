@@ -47,7 +47,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [clothingItems, setClothingItems] = useState([]);
-  const[isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   //ACTIVATES THE ADDED CARD
   const handleAddClick = () => {
