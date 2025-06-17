@@ -45,6 +45,8 @@ class Api {
     }).then(this._checkResponse);
   }
 
+
+
   addCardLike(id, token) {
     return fetch(this.baseUrl + "/items/" + id + "/likes", {
       method: "PUT",

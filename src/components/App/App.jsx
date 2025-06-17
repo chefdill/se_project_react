@@ -17,16 +17,17 @@ import LoginModal from "./LoginModal/LoginModal.jsx";
 import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx";
 import Auth from "../../utils/auth.js";
 import ProtectedRoute from "../ProtectedRoute.jsx";
+import { baseUrl } from "../../utils/constants"
 
 const api = new Api({
-  baseUrl: "http://localhost:3001",
+  baseUrl: baseUrl,
   headers: {
     "Content-Type": "application/json",
   },
 });
 
 const auth = new Auth({
-  baseUrl: "http://localhost:3001",
+  baseUrl: baseUrl,
   headers: {
     "Content-Type": "application/json",
   },
