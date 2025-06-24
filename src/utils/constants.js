@@ -72,7 +72,7 @@ const defaultWeatherOptions = {
 
 const baseUrl = 
 process.env.NODE_ENV === "production" 
-  ? "http://api.whatstheweather.epicgamer.org"
+  ? "http://api.whatstheweather.blinklab.com"
   : "http://localhost:3001";
 
 const coordinates = {
