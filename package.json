@@ -3,7 +3,7 @@
   "homepage": "http://www.whatstheweather.blinklab.com",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+ "type" : "module",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "npm run build && scp -r ./dist/* dillon_sareerat@34.148.184.178:/home/dillon_sareerat/frontend",
