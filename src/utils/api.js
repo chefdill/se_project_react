@@ -1,7 +1,10 @@
 class Api {
   constructor({ baseUrl, headers }) {
     // constructor body
-    this.baseUrl = baseUrl;
+    const baseUrl = process.env.NODE_ENV === "production" 
+  ? "https://api.whatstheweather.blinklab.com"
+  : "http://localhost:3001";
+    // this.baseUrl = baseUrl;
     this._headers = headers;
   }
 
