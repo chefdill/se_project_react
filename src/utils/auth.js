@@ -1,6 +1,7 @@
+import { baseUrl } from "./constants";
+
 class Auth {
-    constructor({ baseUrl, headers }) {
-        this.baseUrl = baseUrl;
+    constructor({ headers }) {
         this.headers = headers;
 }
 
@@ -23,7 +24,7 @@ _addToStorage(res) {
 
 registerUser({ name, avatar, email, password }) {
     console.log('Sending registration request with:', { name, avatar, email, password: '***' });
-    return fetch(this.baseUrl + "/signup", {
+    return fetch(baseUrl + "/signup", {
         method: "POST",
         headers: this.headers,
         body: JSON.stringify({
@@ -36,7 +37,7 @@ registerUser({ name, avatar, email, password }) {
 }
 
 loginUser({ email, password }) {
-    return fetch(this.baseUrl + "/signin", {
+    return fetch(baseUrl + "/signin", {
         method: "POST",
         headers: this.headers,
         body: JSON.stringify({
@@ -49,7 +50,7 @@ loginUser({ email, password }) {
 }
 
 verifyToken(token) {
-    return fetch(this.baseUrl + "/users/me", {
+    return fetch(baseUrl + "/users/me", {
         method: "GET",
         headers: {
             ...this.headers,

@@ -1,7 +1,8 @@
+import { baseUrl } from "./constants";
+
 class Api {
-  constructor({ baseUrl, headers }) {
+  constructor({ headers }) {
     // constructor body
-    this.baseUrl = baseUrl;
     this._headers = headers;
   }
 
@@ -14,14 +15,14 @@ class Api {
   }
 
   getCards() {
-    return fetch(this.baseUrl + "/items", {
+    return fetch(baseUrl + "/items", {
       method: "GET",
     }).then(this._checkResponse);
   }
 
   addItem({ name, link, weather }) {
     const token = localStorage.getItem("jwt");
-    return fetch(this.baseUrl + "/items/", {
+    return fetch(baseUrl + "/items/", {
       method: "POST",
       headers: {
         ...this._headers,
@@ -36,7 +37,7 @@ class Api {
   }
 
   deleteItem(id, token) {
-    return fetch(this.baseUrl + "/items/" + id, {
+    return fetch(baseUrl + "/items/" + id, {
       method: "DELETE",
       headers: {
         ...this._headers,
@@ -48,7 +49,7 @@ class Api {
 
 
   addCardLike(id, token) {
-    return fetch(this.baseUrl + "/items/" + id + "/likes", {
+    return fetch(baseUrl + "/items/" + id + "/likes", {
       method: "PUT",
       headers: {
         ...this._headers,
@@ -58,7 +59,7 @@ class Api {
   }
 
   removeCardLike(id, token) {
-    return fetch(this.baseUrl + "/items/" + id + "/likes", {
+    return fetch(baseUrl + "/items/" + id + "/likes", {
       method: "DELETE",
       headers: {
         ...this._headers,
@@ -68,7 +69,7 @@ class Api {
   }
 
   editUser(token, name, avatar) {
-    return fetch(this.baseUrl + "/users/me", {
+    return fetch(baseUrl + "/users/me", {
       method: "PATCH",
       headers: {
         ...this._headers,
