@@ -12,7 +12,7 @@ _checkResponse(res) {
     console.error('Server Error:', {
         status: res.status,
         statusText: res.statusText,
-        data: data
+        data: res
     });
     return Promise.reject(`Error ${res.status}`);
 }
