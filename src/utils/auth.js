@@ -35,6 +35,7 @@ registerUser({ name, avatar, email, password }) {
             }),
     }).then(this._checkResponse);
 }
+// console.log('avatar url:', user.avatar);
 
 loginUser({ email, password }) {
     return fetch(baseUrl + "/signin", {
