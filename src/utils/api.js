@@ -22,6 +22,7 @@ class Api {
 
   addItem({ name, link, weather }) {
     const token = localStorage.getItem("jwt");
+    console.log('avatar url:', user.avatar);
     return fetch(baseUrl + "/items/", {
       method: "POST",
       headers: {
@@ -35,6 +36,7 @@ class Api {
       }),
     }).then(this._checkResponse);
   }
+
 
   deleteItem(id, token) {
     return fetch(baseUrl + "/items/" + id, {
