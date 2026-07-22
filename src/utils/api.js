@@ -1,8 +1,9 @@
-import { baseUrl } from "./constants";
+ import { baseUrl } from "./constants";
 
 class Api {
   constructor({ headers }) {
     // constructor body
+    // this._baseUrl = baseUrl;
     this._headers = headers;
   }
 
@@ -68,7 +69,7 @@ class Api {
         Authorization: `Bearer ${token}`,
       },
     }).then(this._checkResponse);
-  }
+  } 
 
   editUser(token, name, avatar) {
     return fetch(baseUrl + "/users/me", {
